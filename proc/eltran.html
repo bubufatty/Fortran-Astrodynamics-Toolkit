@@ -219,23 +219,17 @@ private subroutine eltran(Nm, n, Low, Igh, a, Int, z)
 
 
     
-    <p><strong><em>PURPOSE  Accumulates the stabilized elementary similarity
-            transformations used in the reduction of a real general
-            matrix to upper Hessenberg form by ELMHES.
-</em></strong>KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
-<strong><em>AUTHOR  Smith, B. T., et al.
-</em></strong>DESCRIPTION</p>
-<div class="codehilite"><pre><span></span><code> <span class="n">This</span> <span class="n">subroutine</span> <span class="k">is</span> <span class="n">a</span> <span class="n">translation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">ALGOL</span> <span class="n">procedure</span> <span class="n">ELMTRANS</span><span class="p">,</span>
- <span class="n">NUM</span><span class="o">.</span> <span class="n">MATH</span><span class="o">.</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">181</span><span class="o">-</span><span class="mi">204</span><span class="p">(</span><span class="mi">1970</span><span class="p">)</span> <span class="n">by</span> <span class="n">Peters</span> <span class="ow">and</span> <span class="n">Wilkinson</span><span class="o">.</span>
- <span class="n">HANDBOOK</span> <span class="n">FOR</span> <span class="n">AUTO</span><span class="o">.</span> <span class="n">COMP</span><span class="o">.</span><span class="p">,</span> <span class="n">VOL</span><span class="o">.</span><span class="n">II</span><span class="o">-</span><span class="n">LINEAR</span> <span class="n">ALGEBRA</span><span class="p">,</span> <span class="mi">372</span><span class="o">-</span><span class="mi">395</span><span class="p">(</span><span class="mi">1971</span><span class="p">)</span><span class="o">.</span>
-
- <span class="n">This</span> <span class="n">subroutine</span> <span class="n">accumulates</span> <span class="n">the</span> <span class="n">stabilized</span> <span class="n">elementary</span>
- <span class="n">similarity</span> <span class="n">transformations</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">reduction</span> <span class="n">of</span> <span class="n">a</span>
- <span class="n">REAL</span> <span class="n">GENERAL</span> <span class="n">matrix</span> <span class="n">to</span> <span class="n">upper</span> <span class="n">Hessenberg</span> <span class="n">form</span> <span class="n">by</span>  <span class="n">ELMHES</span><span class="o">.</span>
-
- <span class="n">On</span> <span class="n">INPUT</span>
-
-    <span class="n">NM</span> <span class="n">must</span> <span class="n">be</span> <span class="n">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">row</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">two</span><span class="o">-</span><span class="n">dimensional</span>
+    <p>Accumulates the stabilized elementary similarity
+  transformations used in the reduction of a real general
+  matrix to upper Hessenberg form by ELMHES.</p>
+<p>This subroutine is a translation of the ALGOL procedure ELMTRANS,
+  NUM. MATH. 16, 181-204(1970) by Peters and Wilkinson.
+  HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 372-395(1971).</p>
+<p>This subroutine accumulates the stabilized elementary
+  similarity transformations used in the reduction of a
+  REAL GENERAL matrix to upper Hessenberg form by  ELMHES.</p>
+<h3>On Input</h3>
+<div class="codehilite"><pre><span></span><code>    <span class="n">NM</span> <span class="n">must</span> <span class="n">be</span> <span class="n">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">row</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">two</span><span class="o">-</span><span class="n">dimensional</span>
       <span class="n">array</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">Z</span><span class="p">,</span> <span class="k">as</span> <span class="n">declared</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">calling</span>
       <span class="n">program</span> <span class="n">dimension</span> <span class="n">statement</span><span class="o">.</span>  <span class="n">NM</span> <span class="k">is</span> <span class="n">an</span> <span class="n">INTEGER</span> <span class="n">variable</span><span class="o">.</span>
 
@@ -254,28 +248,33 @@ private subroutine eltran(Nm, n, Low, Igh, a, Int, z)
       <span class="ow">in</span> <span class="n">the</span> <span class="n">reduction</span> <span class="n">by</span>  <span class="n">ELMHES</span><span class="o">.</span>  <span class="n">Only</span> <span class="n">elements</span> <span class="n">LOW</span> <span class="n">through</span> <span class="n">IGH</span>
       <span class="n">are</span> <span class="n">used</span><span class="o">.</span>  <span class="n">INT</span> <span class="k">is</span> <span class="n">a</span> <span class="n">one</span><span class="o">-</span><span class="n">dimensional</span> <span class="n">INTEGER</span> <span class="n">array</span><span class="p">,</span>
       <span class="n">dimensioned</span> <span class="n">INT</span><span class="p">(</span><span class="n">IGH</span><span class="p">)</span><span class="o">.</span>
-
- <span class="n">On</span> <span class="n">OUTPUT</span>
-
-    <span class="n">Z</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">transformation</span> <span class="n">matrix</span> <span class="n">produced</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">reduction</span>
-      <span class="n">by</span>  <span class="n">ELMHES</span><span class="o">.</span>  <span class="n">Z</span> <span class="k">is</span> <span class="n">a</span> <span class="n">two</span><span class="o">-</span><span class="n">dimensional</span> <span class="n">REAL</span> <span class="n">array</span><span class="p">,</span> <span class="n">dimensioned</span>
-      <span class="n">Z</span><span class="p">(</span><span class="n">NM</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">.</span>
-
- <span class="n">Questions</span> <span class="ow">and</span> <span class="n">comments</span> <span class="n">should</span> <span class="n">be</span> <span class="n">directed</span> <span class="n">to</span> <span class="n">B</span><span class="o">.</span> <span class="n">S</span><span class="o">.</span> <span class="n">Garbow</span><span class="p">,</span>
- <span class="n">APPLIED</span> <span class="n">MATHEMATICS</span> <span class="n">DIVISION</span><span class="p">,</span> <span class="n">ARGONNE</span> <span class="n">NATIONAL</span> <span class="n">LABORATORY</span>
- <span class="o">------------------------------------------------------------------</span>
 </code></pre></div>
 
-<p><strong><em>REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
-                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
-                 system Routines - EISPACK Guide, Springer-Verlag,
-                 1976.
-</em></strong>REVISION HISTORY  (YYMMDD)
-   760101  DATE WRITTEN
-   890831  Modified array declarations.  (WRB)
-   890831  REVISION DATE from Version 3.2
-   891214  Prologue converted to Version 4.0 format.  (BAB)
-   920501  Reformatted the REFERENCES section.  (WRB)</p>
+<h3>On Output</h3>
+<div class="codehilite"><pre><span></span><code>    Z contains the transformation matrix produced in the reduction
+      by  ELMHES.  Z is a two-dimensional REAL array, dimensioned
+      Z(NM,N).
+
+ Questions and comments should be directed to B. S. Garbow,
+ APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+</code></pre></div>
+
+<h3>References</h3>
+<ul>
+<li>B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+    Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+    system Routines - EISPACK Guide, Springer-Verlag,
+    1976.</li>
+</ul>
+<h3>Revision History</h3>
+<ul>
+<li>Author: Smith, B. T., et al.</li>
+<li>760101  DATE WRITTEN</li>
+<li>890831  Modified array declarations.  (WRB)</li>
+<li>890831  REVISION DATE from Version 3.2</li>
+<li>891214  Prologue converted to Version 4.0 format.  (BAB)</li>
+<li>920501  Reformatted the REFERENCES section.  (WRB)</li>
+</ul>
     
 
     <h3>Arguments</h3>
@@ -356,7 +355,7 @@ private subroutine eltran(Nm, n, Low, Igh, a, Int, z)
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~4"></span>real(kind=wp)</td>
+  <td><span class="anchor" id="variable-a~5"></span>real(kind=wp)</td>
   <td></td>
   <td></td>
   
@@ -457,35 +456,35 @@ private subroutine eltran(Nm, n, Low, Igh, a, Int, z)
 <path fill="none" stroke="#000000" d="M585.13,-33C594.19,-33 602.84,-33 610.66,-33"/>
 <polygon fill="#000000" stroke="#000000" points="610.76,-36.5 620.76,-33 610.76,-29.5 610.76,-36.5"/>
 </g>
-<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors -->
-<g id="proc~~eltran~~CalledByGraph_node4" class="node">
-<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors</title>
-<g id="a_proc~~eltran~~CalledByGraph_node4"><a xlink:href=".././proc/compute_real_eigenvalues_and_normalized_eigenvectors.html" xlink:title="compute_real_eigenvalues_and_normalized_eigenvectors">
-<polygon fill="#d9534f" stroke="#d9534f" points="320,-66 0,-66 0,-42 320,-42 320,-66"/>
-<text text-anchor="middle" x="160" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_real_eigenvalues_and_normalized_eigenvectors</text>
-</a>
-</g>
-</g>
-<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors -->
-<g id="proc~~eltran~~CalledByGraph_edge3" class="edge">
-<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors</title>
-<path fill="none" stroke="#000000" d="M320.22,-43.16C328.7,-42.58 337.17,-42.01 345.51,-41.44"/>
-<polygon fill="#000000" stroke="#000000" points="345.88,-44.92 355.62,-40.75 345.4,-37.94 345.88,-44.92"/>
-</g>
 <!-- proc~eispack_test -->
-<g id="proc~~eltran~~CalledByGraph_node5" class="node">
+<g id="proc~~eltran~~CalledByGraph_node4" class="node">
 <title>proc~eispack_test</title>
-<g id="a_proc~~eltran~~CalledByGraph_node5"><a xlink:href=".././proc/eispack_test.html" xlink:title="eispack_test">
-<polygon fill="#d9534f" stroke="#d9534f" points="199,-24 121,-24 121,0 199,0 199,-24"/>
-<text text-anchor="middle" x="160" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eispack_test</text>
+<g id="a_proc~~eltran~~CalledByGraph_node4"><a xlink:href=".././proc/eispack_test.html" xlink:title="eispack_test">
+<polygon fill="#d9534f" stroke="#d9534f" points="199,-66 121,-66 121,-42 199,-42 199,-66"/>
+<text text-anchor="middle" x="160" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eispack_test</text>
 </a>
 </g>
 </g>
 <!-- proc~eispack_test&#45;&gt;proc~compute_eigenvalues_and_eigenvectors -->
-<g id="proc~~eltran~~CalledByGraph_edge4" class="edge">
+<g id="proc~~eltran~~CalledByGraph_edge3" class="edge">
 <title>proc~eispack_test&#45;&gt;proc~compute_eigenvalues_and_eigenvectors</title>
-<path fill="none" stroke="#000000" d="M199.14,-14.6C235.79,-17.09 293.2,-21 345.7,-24.57"/>
-<polygon fill="#000000" stroke="#000000" points="345.57,-28.07 355.79,-25.26 346.05,-21.09 345.57,-28.07"/>
+<path fill="none" stroke="#000000" d="M199.14,-51.4C235.79,-48.91 293.2,-45 345.7,-41.43"/>
+<polygon fill="#000000" stroke="#000000" points="346.05,-44.91 355.79,-40.74 345.57,-37.93 346.05,-44.91"/>
+</g>
+<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors -->
+<g id="proc~~eltran~~CalledByGraph_node5" class="node">
+<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors</title>
+<g id="a_proc~~eltran~~CalledByGraph_node5"><a xlink:href=".././proc/compute_real_eigenvalues_and_normalized_eigenvectors.html" xlink:title="compute_real_eigenvalues_and_normalized_eigenvectors">
+<polygon fill="#d9534f" stroke="#d9534f" points="320,-24 0,-24 0,0 320,0 320,-24"/>
+<text text-anchor="middle" x="160" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_real_eigenvalues_and_normalized_eigenvectors</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors -->
+<g id="proc~~eltran~~CalledByGraph_edge4" class="edge">
+<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors</title>
+<path fill="none" stroke="#000000" d="M320.22,-22.84C328.7,-23.42 337.17,-23.99 345.51,-24.56"/>
+<polygon fill="#000000" stroke="#000000" points="345.4,-28.06 355.62,-25.25 345.88,-21.08 345.4,-28.06"/>
 </g>
 </g>
 </svg>

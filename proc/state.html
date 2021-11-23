@@ -241,7 +241,7 @@ private subroutine state(me, et2, list, pv, pnut, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~67"></span>class(<a href='../type/jpl_ephemeris.html'>jpl_ephemeris</a>),</td>
+  <td><span class="anchor" id="variable-me~57"></span>class(<a href='../type/jpl_ephemeris.html'>jpl_ephemeris</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -262,17 +262,17 @@ private subroutine state(me, et2, list, pv, pnut, status_ok)
   
   <td>dimension(2)</td><td>::</td>
   <td><strong>et2</strong></td><td><p>2-word Julian ephemeris epoch at which interpolation
- is wanted.  any combination of <code>et2(1)+et2(2)</code> which falls
- within the time span on the file is a permissible epoch.</p>
+is wanted.  any combination of <code>et2(1)+et2(2)</code> which falls
+within the time span on the file is a permissible epoch.</p>
 <p><strong><em>a.</em></strong> for ease in programming, the user may put the
-    entire epoch in <code>et2(1)</code> and set <code>et2(2)=0</code>.
- <strong><em>b.</em></strong> for maximum interpolation accuracy, set <code>et2(1)</code> =
-    the most recent midnight at or before interpolation
-    epoch and set <code>et2(2)</code> = fractional part of a day
-    elapsed between <code>et2(1)</code> and epoch.
- <strong><em>c.</em></strong> as an alternative, it may prove convenient to set
-    <code>et2(1)</code> = some fixed epoch, such as start of integration,
-    and <code>et2(2)</code> = elapsed interval between then and epoch.</p></td>
+   entire epoch in <code>et2(1)</code> and set <code>et2(2)=0</code>.
+<strong><em>b.</em></strong> for maximum interpolation accuracy, set <code>et2(1)</code> =
+   the most recent midnight at or before interpolation
+   epoch and set <code>et2(2)</code> = fractional part of a day
+   elapsed between <code>et2(1)</code> and epoch.
+<strong><em>c.</em></strong> as an alternative, it may prove convenient to set
+   <code>et2(1)</code> = some fixed epoch, such as start of integration,
+   and <code>et2(2)</code> = elapsed interval between then and epoch.</p></td>
   
 </tr>
 
@@ -288,23 +288,23 @@ private subroutine state(me, et2, list, pv, pnut, status_ok)
   
   <td>dimension(12)</td><td>::</td>
   <td><strong>list</strong></td><td><p>12-word integer array specifying what interpolation
- is wanted for each of the bodies on the file.
-    <strong><em>list(i) = 0</em></strong> : no interpolation for body i,
-    <strong><em>list(i) = 1</em></strong> : position only,
-    <strong><em>list(i) = 2</em></strong> : position and velocity.</p>
+is wanted for each of the bodies on the file.
+   <strong><em>list(i) = 0</em></strong> : no interpolation for body i,
+   <strong><em>list(i) = 1</em></strong> : position only,
+   <strong><em>list(i) = 2</em></strong> : position and velocity.</p>
 <p>The designation of the astronomical bodies by i is:
-    <strong><em>i = 1</em></strong> : mercury,
-    <strong><em>i = 2</em></strong> : venus,
-    <strong><em>i = 3</em></strong> : earth-moon barycenter,
-    <strong><em>i = 4</em></strong> : mars,
-    <strong><em>i = 5</em></strong> : jupiter,
-    <strong><em>i = 6</em></strong> : saturn,
-    <strong><em>i = 7</em></strong> : uranus,
-    <strong><em>i = 8</em></strong> : neptune,
-    <strong><em>i = 9</em></strong> : pluto,
-    <strong><em>i =10</em></strong> : geocentric moon,
-    <strong><em>i =11</em></strong> : nutations in longitude and obliquity,
-    <strong><em>i =12</em></strong> : lunar librations (if on file).</p></td>
+   <strong><em>i = 1</em></strong> : mercury,
+   <strong><em>i = 2</em></strong> : venus,
+   <strong><em>i = 3</em></strong> : earth-moon barycenter,
+   <strong><em>i = 4</em></strong> : mars,
+   <strong><em>i = 5</em></strong> : jupiter,
+   <strong><em>i = 6</em></strong> : saturn,
+   <strong><em>i = 7</em></strong> : uranus,
+   <strong><em>i = 8</em></strong> : neptune,
+   <strong><em>i = 9</em></strong> : pluto,
+   <strong><em>i =10</em></strong> : geocentric moon,
+   <strong><em>i =11</em></strong> : nutations in longitude and obliquity,
+   <strong><em>i =12</em></strong> : lunar librations (if on file).</p></td>
   
 </tr>
 
@@ -320,23 +320,23 @@ private subroutine state(me, et2, list, pv, pnut, status_ok)
   
   <td>dimension(6,11)</td><td>::</td>
   <td><strong>pv</strong></td><td><p>dp 6 x 11 array that will contain requested interpolated
- quantities (other than nutation, stored in <code>pnut</code>).
- the body specified by <code>list(i)</code> will have its
- state in the array starting at <code>pv(1,i)</code>.
- (on any given call, only those words in <code>pv</code> which are
- affected by the first 10 <code>list</code> entries, and by <code>list(12)</code>
- if librations are on the file, are set.
- the rest of the <code>pv</code> array is untouched.)
- the order of components starting in <code>pv(1,i)</code> is:
- <code>x</code>,<code>y</code>,<code>z</code>,<code>dx</code>,<code>dy</code>,<code>dz</code>.</p>
+quantities (other than nutation, stored in <code>pnut</code>).
+the body specified by <code>list(i)</code> will have its
+state in the array starting at <code>pv(1,i)</code>.
+(on any given call, only those words in <code>pv</code> which are
+affected by the first 10 <code>list</code> entries, and by <code>list(12)</code>
+if librations are on the file, are set.
+the rest of the <code>pv</code> array is untouched.)
+the order of components starting in <code>pv(1,i)</code> is:
+<code>x</code>,<code>y</code>,<code>z</code>,<code>dx</code>,<code>dy</code>,<code>dz</code>.</p>
 <p>All output vectors are referenced to the earth mean
- equator and equinox of J2000 if the DE number is 200 or
- greater; of B1950 if the DE number is less than 200.</p>
+equator and equinox of J2000 if the DE number is 200 or
+greater; of B1950 if the DE number is less than 200.</p>
 <p>The moon state is always geocentric; the other nine states
- are either heliocentric or solar-system barycentric,
- depending on the setting of the <code>bary</code> variable in the class.</p>
+are either heliocentric or solar-system barycentric,
+depending on the setting of the <code>bary</code> variable in the class.</p>
 <p>Lunar librations, if on file, are put into <code>pv(k,11)</code> if
- <code>list(12)</code> is <code>1</code> or <code>2</code>.</p></td>
+<code>list(12)</code> is <code>1</code> or <code>2</code>.</p></td>
   
 </tr>
 
@@ -352,8 +352,8 @@ private subroutine state(me, et2, list, pv, pnut, status_ok)
   
   <td>dimension(4)</td><td>::</td>
   <td><strong>pnut</strong></td><td><p>dp 4-word array that will contain nutations and rates,
- depending on the setting of <code>list(11)</code>.  the order of
- quantities in <code>pnut</code> is:</p>
+depending on the setting of <code>list(11)</code>.  the order of
+quantities in <code>pnut</code> is:</p>
 <ul>
 <li><code>d psi</code>  (nutation in longitude),</li>
 <li><code>d epsilon</code> (nutation in obliquity),</li>
@@ -369,7 +369,7 @@ private subroutine state(me, et2, list, pv, pnut, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-status_ok~21"></span>logical,</td>
+  <td><span class="anchor" id="variable-status_ok~18"></span>logical,</td>
   <td>intent(out)</td>
   <td></td>
   

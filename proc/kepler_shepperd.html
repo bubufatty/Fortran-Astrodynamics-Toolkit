@@ -249,7 +249,7 @@ public subroutine kepler_shepperd(mu, rv1, dt, rv2, istat)
   
 <tr>
   
-  <td><span class="anchor" id="variable-mu~30"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-mu~7"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -279,7 +279,7 @@ public subroutine kepler_shepperd(mu, rv1, dt, rv2, istat)
   
 <tr>
   
-  <td><span class="anchor" id="variable-dt~5"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-dt~3"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -309,16 +309,16 @@ public subroutine kepler_shepperd(mu, rv1, dt, rv2, istat)
   
 <tr>
   
-  <td><span class="anchor" id="variable-istat~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-istat"></span>integer,</td>
   <td>intent(out),</td>
   <td>optional</td>
   
   <td></td><td>::</td>
   <td><strong>istat</strong></td><td><p>status flag (if not present, warnings are printed):
- Linear combination of :</p>
+Linear combination of :</p>
 <p><code>0</code> : all is well
- <code>-10</code> : failed to converge in time loop
- <code>-100</code> : failed to converge in <code>g</code> loop</p></td>
+<code>-10</code> : failed to converge in time loop
+<code>-100</code> : failed to converge in <code>g</code> loop</p></td>
   
 </tr>
 

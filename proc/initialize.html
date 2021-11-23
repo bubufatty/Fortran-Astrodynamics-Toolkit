@@ -240,7 +240,7 @@ private subroutine initialize(me, n, f, rtol, atol, stepsize_method, hinit_metho
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~26"></span>class(<a href='../type/rk_variable_step_class.html'>rk_variable_step_class</a>),</td>
+  <td><span class="anchor" id="variable-me~27"></span>class(<a href='../type/rk_variable_step_class.html'>rk_variable_step_class</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -255,7 +255,7 @@ private subroutine initialize(me, n, f, rtol, atol, stepsize_method, hinit_metho
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~15"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~20"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -270,7 +270,7 @@ private subroutine initialize(me, n, f, rtol, atol, stepsize_method, hinit_metho
   
 <tr>
   
-  <td><span class="anchor" id="variable-f~8"></span>procedure(<a href='../interface/deriv_func.html'>deriv_func</a>)</td>
+  <td><span class="anchor" id="variable-f~13"></span>procedure(<a href='../interface/deriv_func.html'>deriv_func</a>)</td>
   <td></td>
   <td></td>
   
@@ -291,8 +291,8 @@ private subroutine initialize(me, n, f, rtol, atol, stepsize_method, hinit_metho
   
   <td>dimension(:)</td><td>::</td>
   <td><strong>rtol</strong></td><td><p>relative tolerance (if size=1,
- then same tol used for all
- equations)</p></td>
+then same tol used for all
+equations)</p></td>
   
 </tr>
 
@@ -308,8 +308,8 @@ private subroutine initialize(me, n, f, rtol, atol, stepsize_method, hinit_metho
   
   <td>dimension(:)</td><td>::</td>
   <td><strong>atol</strong></td><td><p>absolute tolerance (if size=1,
- then same tol used for all
- equations)</p></td>
+then same tol used for all
+equations)</p></td>
   
 </tr>
 
@@ -340,9 +340,9 @@ private subroutine initialize(me, n, f, rtol, atol, stepsize_method, hinit_metho
   
   <td></td><td>::</td>
   <td><strong>hinit_method</strong></td><td><p>which method to use for
- automatic initial step size
- computation.
- 1 = use <code>hstart</code>, 2 = use <code>hinit</code>.</p></td>
+automatic initial step size
+computation.
+1 = use <code>hstart</code>, 2 = use <code>hinit</code>.</p></td>
   
 </tr>
 

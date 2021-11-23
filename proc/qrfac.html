@@ -219,67 +219,53 @@ public subroutine qrfac(m, n, a, lda, pivot, ipvt, lipvt, rdiag, acnorm, wa)
 
 
     
-    <div class="codehilite"><pre><span></span><code> <span class="n">this</span> <span class="n">subroutine</span> <span class="n">uses</span> <span class="n">householder</span> <span class="n">transformations</span> <span class="n">with</span> <span class="n">column</span>
- <span class="n">pivoting</span> <span class="p">(</span><span class="n">optional</span><span class="p">)</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">a</span> <span class="n">qr</span> <span class="n">factorization</span> <span class="n">of</span> <span class="n">the</span>
- <span class="n">m</span> <span class="n">by</span> <span class="n">n</span> <span class="n">matrix</span> <span class="n">a</span><span class="o">.</span> <span class="n">that</span> <span class="k">is</span><span class="p">,</span> <span class="n">qrfac</span> <span class="n">determines</span> <span class="n">an</span> <span class="n">orthogonal</span>
- <span class="n">matrix</span> <span class="n">q</span><span class="p">,</span> <span class="n">a</span> <span class="n">permutation</span> <span class="n">matrix</span> <span class="n">p</span><span class="p">,</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">upper</span> <span class="n">trapezoidal</span>
- <span class="n">matrix</span> <span class="n">r</span> <span class="n">with</span> <span class="n">diagonal</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">nonincreasing</span> <span class="n">magnitude</span><span class="p">,</span>
- <span class="n">such</span> <span class="n">that</span> <span class="n">a</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="o">*</span><span class="n">r</span><span class="o">.</span> <span class="n">the</span> <span class="n">householder</span> <span class="n">transformation</span> <span class="k">for</span>
- <span class="n">column</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span> <span class="k">is</span> <span class="n">of</span> <span class="n">the</span> <span class="n">form</span>
-
-                       <span class="n">t</span>
-       <span class="n">i</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">u</span><span class="p">(</span><span class="n">k</span><span class="p">))</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">u</span>
-
- <span class="n">where</span> <span class="n">u</span> <span class="n">has</span> <span class="n">zeros</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">first</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span> <span class="n">positions</span><span class="o">.</span> <span class="n">the</span> <span class="n">form</span> <span class="n">of</span>
- <span class="n">this</span> <span class="n">transformation</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">method</span> <span class="n">of</span> <span class="n">pivoting</span> <span class="n">first</span>
- <span class="n">appeared</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">linpack</span> <span class="n">subroutine</span><span class="o">.</span>
-
- <span class="n">the</span> <span class="n">subroutine</span> <span class="n">statement</span> <span class="k">is</span>
-
-   <span class="n">subroutine</span> <span class="n">qrfac</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">lda</span><span class="p">,</span><span class="n">pivot</span><span class="p">,</span><span class="n">ipvt</span><span class="p">,</span><span class="n">lipvt</span><span class="p">,</span><span class="n">rdiag</span><span class="p">,</span><span class="n">acnorm</span><span class="p">,</span><span class="n">wa</span><span class="p">)</span>
-
- <span class="n">where</span>
-
-   <span class="n">m</span> <span class="k">is</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="n">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">number</span>
-     <span class="n">of</span> <span class="n">rows</span> <span class="n">of</span> <span class="n">a</span><span class="o">.</span>
-
-   <span class="n">n</span> <span class="k">is</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="n">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">number</span>
-     <span class="n">of</span> <span class="n">columns</span> <span class="n">of</span> <span class="n">a</span><span class="o">.</span>
-
-   <span class="n">a</span> <span class="k">is</span> <span class="n">an</span> <span class="n">m</span> <span class="n">by</span> <span class="n">n</span> <span class="n">array</span><span class="o">.</span> <span class="n">on</span> <span class="n">input</span> <span class="n">a</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">matrix</span> <span class="k">for</span>
-     <span class="n">which</span> <span class="n">the</span> <span class="n">qr</span> <span class="n">factorization</span> <span class="k">is</span> <span class="n">to</span> <span class="n">be</span> <span class="n">computed</span><span class="o">.</span> <span class="n">on</span> <span class="n">output</span>
-     <span class="n">the</span> <span class="n">strict</span> <span class="n">upper</span> <span class="n">trapezoidal</span> <span class="n">part</span> <span class="n">of</span> <span class="n">a</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">strict</span>
-     <span class="n">upper</span> <span class="n">trapezoidal</span> <span class="n">part</span> <span class="n">of</span> <span class="n">r</span><span class="p">,</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">lower</span> <span class="n">trapezoidal</span>
-     <span class="n">part</span> <span class="n">of</span> <span class="n">a</span> <span class="n">contains</span> <span class="n">a</span> <span class="n">factored</span> <span class="n">form</span> <span class="n">of</span> <span class="n">q</span> <span class="p">(</span><span class="n">the</span> <span class="n">non</span><span class="o">-</span><span class="n">trivial</span>
-     <span class="n">elements</span> <span class="n">of</span> <span class="n">the</span> <span class="n">u</span> <span class="n">vectors</span> <span class="n">described</span> <span class="n">above</span><span class="p">)</span><span class="o">.</span>
-
-   <span class="n">lda</span> <span class="k">is</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="ow">not</span> <span class="n">less</span> <span class="n">than</span> <span class="n">m</span>
-     <span class="n">which</span> <span class="n">specifies</span> <span class="n">the</span> <span class="n">leading</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span> <span class="n">a</span><span class="o">.</span>
-
-   <span class="n">pivot</span> <span class="k">is</span> <span class="n">a</span> <span class="n">logical</span> <span class="n">input</span> <span class="n">variable</span><span class="o">.</span> <span class="k">if</span> <span class="n">pivot</span> <span class="k">is</span> <span class="n">set</span> <span class="bp">true</span><span class="p">,</span>
-     <span class="n">then</span> <span class="n">column</span> <span class="n">pivoting</span> <span class="k">is</span> <span class="n">enforced</span><span class="o">.</span> <span class="k">if</span> <span class="n">pivot</span> <span class="k">is</span> <span class="n">set</span> <span class="bp">false</span><span class="p">,</span>
-     <span class="n">then</span> <span class="n">no</span> <span class="n">column</span> <span class="n">pivoting</span> <span class="k">is</span> <span class="n">done</span><span class="o">.</span>
-
-   <span class="n">ipvt</span> <span class="k">is</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">output</span> <span class="n">array</span> <span class="n">of</span> <span class="n">length</span> <span class="n">lipvt</span><span class="o">.</span> <span class="n">ipvt</span>
-     <span class="n">defines</span> <span class="n">the</span> <span class="n">permutation</span> <span class="n">matrix</span> <span class="n">p</span> <span class="n">such</span> <span class="n">that</span> <span class="n">a</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span><span class="o">*</span><span class="n">r</span><span class="o">.</span>
-     <span class="n">column</span> <span class="n">j</span> <span class="n">of</span> <span class="n">p</span> <span class="k">is</span> <span class="n">column</span> <span class="n">ipvt</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="n">of</span> <span class="n">the</span> <span class="n">identity</span> <span class="n">matrix</span><span class="o">.</span>
-     <span class="k">if</span> <span class="n">pivot</span> <span class="k">is</span> <span class="bp">false</span><span class="p">,</span> <span class="n">ipvt</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">referenced</span><span class="o">.</span>
-
-   <span class="n">lipvt</span> <span class="k">is</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span><span class="o">.</span> <span class="k">if</span> <span class="n">pivot</span> <span class="k">is</span> <span class="bp">false</span><span class="p">,</span>
-     <span class="n">then</span> <span class="n">lipvt</span> <span class="n">may</span> <span class="n">be</span> <span class="k">as</span> <span class="n">small</span> <span class="k">as</span> <span class="mf">1.</span> <span class="k">if</span> <span class="n">pivot</span> <span class="k">is</span> <span class="bp">true</span><span class="p">,</span> <span class="n">then</span>
-     <span class="n">lipvt</span> <span class="n">must</span> <span class="n">be</span> <span class="n">at</span> <span class="n">least</span> <span class="n">n</span><span class="o">.</span>
-
-   <span class="n">rdiag</span> <span class="k">is</span> <span class="n">an</span> <span class="n">output</span> <span class="n">array</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span> <span class="n">which</span> <span class="n">contains</span> <span class="n">the</span>
-     <span class="n">diagonal</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">r</span><span class="o">.</span>
-
-   <span class="n">acnorm</span> <span class="k">is</span> <span class="n">an</span> <span class="n">output</span> <span class="n">array</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span> <span class="n">which</span> <span class="n">contains</span> <span class="n">the</span>
-     <span class="n">norms</span> <span class="n">of</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">columns</span> <span class="n">of</span> <span class="n">the</span> <span class="n">input</span> <span class="n">matrix</span> <span class="n">a</span><span class="o">.</span>
-     <span class="k">if</span> <span class="n">this</span> <span class="n">information</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">needed</span><span class="p">,</span> <span class="n">then</span> <span class="n">acnorm</span> <span class="n">can</span> <span class="n">coincide</span>
-     <span class="n">with</span> <span class="n">rdiag</span><span class="o">.</span>
-
-   <span class="n">wa</span> <span class="k">is</span> <span class="n">a</span> <span class="n">work</span> <span class="n">array</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span><span class="o">.</span> <span class="k">if</span> <span class="n">pivot</span> <span class="k">is</span> <span class="bp">false</span><span class="p">,</span> <span class="n">then</span> <span class="n">wa</span>
-     <span class="n">can</span> <span class="n">coincide</span> <span class="n">with</span> <span class="n">rdiag</span><span class="o">.</span>
+    <p>this subroutine uses householder transformations with column
+pivoting (optional) to compute a qr factorization of the
+m by n matrix a. that is, qrfac determines an orthogonal
+matrix q, a permutation matrix p, and an upper trapezoidal
+matrix r with diagonal elements of nonincreasing magnitude,
+such that a<em>p = q</em>r. the householder transformation for
+column k, k = 1,2,...,min(m,n), is of the form</p>
+<div class="codehilite"><pre><span></span><code>                  t
+  i - (1/u(k))*u*u
 </code></pre></div>
+
+<p>where u has zeros in the first k-1 positions. the form of
+this transformation and the method of pivoting first
+appeared in the corresponding linpack subroutine.</p>
+<p>the subroutine statement is</p>
+<p>subroutine qrfac(m,n,a,lda,pivot,ipvt,lipvt,rdiag,acnorm,wa)</p>
+<p>where</p>
+<p>m is a positive integer input variable set to the number
+    of rows of a.</p>
+<p>n is a positive integer input variable set to the number
+    of columns of a.</p>
+<p>a is an m by n array. on input a contains the matrix for
+    which the qr factorization is to be computed. on output
+    the strict upper trapezoidal part of a contains the strict
+    upper trapezoidal part of r, and the lower trapezoidal
+    part of a contains a factored form of q (the non-trivial
+    elements of the u vectors described above).</p>
+<p>lda is a positive integer input variable not less than m
+    which specifies the leading dimension of the array a.</p>
+<p>pivot is a logical input variable. if pivot is set true,
+    then column pivoting is enforced. if pivot is set false,
+    then no column pivoting is done.</p>
+<p>ipvt is an integer output array of length lipvt. ipvt
+    defines the permutation matrix p such that a<em>p = q</em>r.
+    column j of p is column ipvt(j) of the identity matrix.
+    if pivot is false, ipvt is not referenced.</p>
+<p>lipvt is a positive integer input variable. if pivot is false,
+    then lipvt may be as small as 1. if pivot is true, then
+    lipvt must be at least n.</p>
+<p>rdiag is an output array of length n which contains the
+    diagonal elements of r.</p>
+<p>acnorm is an output array of length n which contains the
+    norms of the corresponding columns of the input matrix a.
+    if this information is not needed, then acnorm can coincide
+    with rdiag.</p>
+<p>wa is a work array of length n. if pivot is false, then wa
+    can coincide with rdiag.</p>
     
 
     <h3>Arguments</h3>
@@ -300,7 +286,7 @@ public subroutine qrfac(m, n, a, lda, pivot, ipvt, lipvt, rdiag, acnorm, wa)
   
 <tr>
   
-  <td><span class="anchor" id="variable-m~8"></span>integer</td>
+  <td><span class="anchor" id="variable-m~20"></span>integer</td>
   <td></td>
   <td></td>
   
@@ -315,7 +301,7 @@ public subroutine qrfac(m, n, a, lda, pivot, ipvt, lipvt, rdiag, acnorm, wa)
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~28"></span>integer</td>
+  <td><span class="anchor" id="variable-n~44"></span>integer</td>
   <td></td>
   <td></td>
   
@@ -330,7 +316,7 @@ public subroutine qrfac(m, n, a, lda, pivot, ipvt, lipvt, rdiag, acnorm, wa)
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~26"></span>real(kind=wp)</td>
+  <td><span class="anchor" id="variable-a~39"></span>real(kind=wp)</td>
   <td></td>
   <td></td>
   

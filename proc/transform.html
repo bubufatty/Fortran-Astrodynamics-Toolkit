@@ -220,10 +220,10 @@ private subroutine transform(from, rv, to, et, eph, rv_out, status_ok)
 
     
     <p>Transform a Cartesian state from one reference frame to another at
-  a specified epoch. The <code>from</code> and <code>to</code> <a href="../type/reference_frame.html">reference_frame</a>s may each
-  be defined at a different epoch. The <code>et</code> ephemeris time is the time
-  the transformation is to be done, and accounts for the motion of the two
-  frame centers from <code>from%et</code> and <code>to%et</code> to <code>et</code>.</p>
+a specified epoch. The <code>from</code> and <code>to</code> <a href="../type/reference_frame.html">reference_frame</a>s may each
+be defined at a different epoch. The <code>et</code> ephemeris time is the time
+the transformation is to be done, and accounts for the motion of the two
+frame centers from <code>from%et</code> and <code>to%et</code> to <code>et</code>.</p>
     
 
     <h3>Arguments</h3>
@@ -259,7 +259,7 @@ private subroutine transform(from, rv, to, et, eph, rv_out, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-rv~8"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-rv~3"></span>real(kind=wp),</td>
   <td>intent(in),</td>
   <td></td>
   
@@ -289,7 +289,7 @@ private subroutine transform(from, rv, to, et, eph, rv_out, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-et~13"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-et~10"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -304,7 +304,7 @@ private subroutine transform(from, rv, to, et, eph, rv_out, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-eph~2"></span>class(<a href='../type/ephemeris_class.html'>ephemeris_class</a>),</td>
+  <td><span class="anchor" id="variable-eph~2"></span>class(ephemeris_class),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -334,7 +334,7 @@ private subroutine transform(from, rv, to, et, eph, rv_out, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-status_ok~6"></span>logical,</td>
+  <td><span class="anchor" id="variable-status_ok~3"></span>logical,</td>
   <td>intent(out)</td>
   <td></td>
   

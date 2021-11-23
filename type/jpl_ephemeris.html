@@ -255,15 +255,15 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_rv~4">get_rv</a>
+      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_rv~3">get_rv</a>
       
-      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-initialize~6">initialize</a>
+      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-initialize~4">initialize</a>
       
       <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_state">get_state</a>
       
       <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_constants">get_constants</a>
       
-      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-close~2">close</a>
+      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-close">close</a>
       
       <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-interp">interp</a>
       
@@ -290,7 +290,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>type, public, extends(<a href='../type/ephemeris_class.html'>ephemeris_class</a>) :: jpl_ephemeris</h2>
+      <h2>type, public, extends(ephemeris_class) :: jpl_ephemeris</h2>
     <p>Main class for accessing a JPL ephemeris file.</p>
     <br>
     
@@ -316,18 +316,15 @@
 <polygon fill="none" stroke="black" points="225,-24 137,-24 137,0 225,0 225,-24"/>
 <text text-anchor="middle" x="181" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">jpl_ephemeris</text>
 </g>
-<!-- type~ephemeris_class -->
+<!-- ephemeris_class -->
 <g id="type~~jpl_ephemeris~~InheritsGraph_node2" class="node">
-<title>type~ephemeris_class</title>
-<g id="a_type~~jpl_ephemeris~~InheritsGraph_node2"><a xlink:href=".././type/ephemeris_class.html" xlink:title="ephemeris_class">
+<title>ephemeris_class</title>
 <polygon fill="#5cb85c" stroke="#5cb85c" points="101,-24 0,-24 0,0 101,0 101,-24"/>
 <text text-anchor="middle" x="50.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ephemeris_class</text>
-</a>
 </g>
-</g>
-<!-- type~jpl_ephemeris&#45;&gt;type~ephemeris_class -->
+<!-- type~jpl_ephemeris&#45;&gt;ephemeris_class -->
 <g id="type~~jpl_ephemeris~~InheritsGraph_edge1" class="edge">
-<title>type~jpl_ephemeris&#45;&gt;type~ephemeris_class</title>
+<title>type~jpl_ephemeris&#45;&gt;ephemeris_class</title>
 <path fill="none" stroke="#000000" d="M136.85,-12C128.77,-12 120.18,-12 111.69,-12"/>
 <polygon fill="#000000" stroke="#000000" points="111.41,-8.5 101.41,-12 111.41,-15.5 111.41,-8.5"/>
 </g>
@@ -460,15 +457,15 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_rv~4">get_rv</a>
+      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_rv~3">get_rv</a>
       
-      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-initialize~6">initialize</a>
+      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-initialize~4">initialize</a>
       
       <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_state">get_state</a>
       
       <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-get_constants">get_constants</a>
       
-      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-close~2">close</a>
+      <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-close">close</a>
       
       <a class="list-group-item" href="../type/jpl_ephemeris.html#boundprocedure-interp">interp</a>
       
@@ -514,7 +511,7 @@
   
   <td><span class="anchor" id="variable-namfil"></span>character(len=:),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>allocatable</td><td>::</td>
   <td><strong>namfil</strong></td><td></td><td></td><td><p>name of the binary ephemeris file</p></td>
   
@@ -528,19 +525,19 @@
   
   <td><span class="anchor" id="variable-ksize"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>ksize</strong></td><td> =</td><td>2036</td><td><p>ksize must be set by the user according to the ephemeris to be read:
-   for <strong><em>de200</em></strong>, set <code>ksize=1652</code>,
-   for <strong><em>de405</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de406</em></strong>, set <code>ksize=1456</code>,
-   for <strong><em>de414</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de418</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de421</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de422</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de423</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de424</em></strong>, set <code>ksize=2036</code>,
-   for <strong><em>de430</em></strong>, set <code>ksize=2036</code>.</p></td>
+  for <strong><em>de200</em></strong>, set <code>ksize=1652</code>,
+  for <strong><em>de405</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de406</em></strong>, set <code>ksize=1456</code>,
+  for <strong><em>de414</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de418</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de421</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de422</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de423</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de424</em></strong>, set <code>ksize=2036</code>,
+  for <strong><em>de430</em></strong>, set <code>ksize=2036</code>.</p></td>
   
 </tr>
 
@@ -552,7 +549,7 @@
   
   <td><span class="anchor" id="variable-ipt"></span>integer,</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(3,13)</td><td>::</td>
   <td><strong>ipt</strong></td><td> =</td><td>0</td><td><p>ipt(39)</p></td>
   
@@ -566,7 +563,7 @@
   
   <td><span class="anchor" id="variable-cval"></span>real(kind=wp),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(nmax)</td><td>::</td>
   <td><strong>cval</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -580,7 +577,7 @@
   
   <td><span class="anchor" id="variable-ss"></span>real(kind=wp),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(3)</td><td>::</td>
   <td><strong>ss</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -594,7 +591,7 @@
   
   <td><span class="anchor" id="variable-au"></span>real(kind=wp),</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>au</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -608,7 +605,7 @@
   
   <td><span class="anchor" id="variable-emrat"></span>real(kind=wp),</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>emrat</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -622,7 +619,7 @@
   
   <td><span class="anchor" id="variable-ncon"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>ncon</strong></td><td> =</td><td>0</td><td></td>
   
@@ -636,7 +633,7 @@
   
   <td><span class="anchor" id="variable-numde"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>numde</strong></td><td> =</td><td>0</td><td></td>
   
@@ -650,10 +647,10 @@
   
   <td><span class="anchor" id="variable-pvsun"></span>real(kind=wp),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(6)</td><td>::</td>
   <td><strong>pvsun</strong></td><td> =</td><td>0.0_wp</td><td><p>dp 6-word array containing the barycentric position and
- velocity of the sun.</p></td>
+velocity of the sun.</p></td>
   
 </tr>
 
@@ -665,12 +662,12 @@
   
   <td><span class="anchor" id="variable-km"></span>logical,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>km</strong></td><td> =</td><td>.true.</td><td><p>logical flag defining physical units of the output states.
-   km = .true.  : km and km/sec
-   km = .false. : au and au/day
- for nutations and librations.  angle unit is always radians.</p></td>
+  km = .true.  : km and km/sec
+  km = .false. : au and au/day
+for nutations and librations.  angle unit is always radians.</p></td>
   
 </tr>
 
@@ -682,12 +679,12 @@
   
   <td><span class="anchor" id="variable-bary"></span>logical,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>bary</strong></td><td> =</td><td>.false.</td><td><p>logical flag defining output center.
- only the 9 planets are affected.
-   bary = .true.  : center is solar-system barycenter
-   bary = .false. : center is sun</p></td>
+only the 9 planets are affected.
+  bary = .true.  : center is solar-system barycenter
+  bary = .false. : center is sun</p></td>
   
 </tr>
 
@@ -699,7 +696,7 @@
   
   <td><span class="anchor" id="variable-ttl"></span>character(len=6),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(14,3)</td><td>::</td>
   <td><strong>ttl</strong></td><td> =</td><td>''</td><td></td>
   
@@ -713,7 +710,7 @@
   
   <td><span class="anchor" id="variable-cnam"></span>character(len=6),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(nmax)</td><td>::</td>
   <td><strong>cnam</strong></td><td> =</td><td>''</td><td></td>
   
@@ -727,7 +724,7 @@
   
   <td><span class="anchor" id="variable-initialized"></span>logical,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>initialized</strong></td><td> =</td><td>.false.</td><td><p>is the ephemeris initialized?</p></td>
   
@@ -741,7 +738,7 @@
   
   <td><span class="anchor" id="variable-nrfile"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>nrfile</strong></td><td> =</td><td>0</td><td><p>file unit for the ephemeris file</p></td>
   
@@ -755,7 +752,7 @@
   
   <td><span class="anchor" id="variable-nrl"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>nrl</strong></td><td> =</td><td>-1</td><td><p>this was formerly in state</p></td>
   
@@ -769,7 +766,7 @@
   
   <td><span class="anchor" id="variable-ncoeffs"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>ncoeffs</strong></td><td> =</td><td>0</td><td></td>
   
@@ -783,7 +780,7 @@
   
   <td><span class="anchor" id="variable-buf"></span>real(kind=wp),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(1500)</td><td>::</td>
   <td><strong>buf</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -797,7 +794,7 @@
   
   <td><span class="anchor" id="variable-pc"></span>real(kind=wp),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(18)</td><td>::</td>
   <td><strong>pc</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -811,7 +808,7 @@
   
   <td><span class="anchor" id="variable-vc"></span>real(kind=wp),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(18)</td><td>::</td>
   <td><strong>vc</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -825,7 +822,7 @@
   
   <td><span class="anchor" id="variable-np"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>np</strong></td><td> =</td><td>2</td><td></td>
   
@@ -839,7 +836,7 @@
   
   <td><span class="anchor" id="variable-nv"></span>integer,</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>nv</strong></td><td> =</td><td>3</td><td></td>
   
@@ -853,7 +850,7 @@
   
   <td><span class="anchor" id="variable-twot"></span>real(kind=wp),</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
   <td><strong>twot</strong></td><td> =</td><td>0.0_wp</td><td></td>
   
@@ -876,7 +873,7 @@
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_rv~4"></span><h3>procedure, public :: <strong>get_rv</strong>  => <a href='../proc/get_rv_from_jpl_ephemeris.html'>get_rv_from_jpl_ephemeris</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_rv~3"></span><h3>procedure, public :: <strong>get_rv</strong>  => <a href='../proc/get_rv_from_jpl_ephemeris.html'>get_rv_from_jpl_ephemeris</a> 
     
   </h3></div>
   
@@ -1023,7 +1020,7 @@ private subroutine <a href='../proc/get_rv_from_jpl_ephemeris.html'>get_rv_from_
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-initialize~6"></span><h3>procedure, public :: <strong>initialize</strong>  => <a href='../proc/initialize_ephemeris.html'>initialize_ephemeris</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-initialize~4"></span><h3>procedure, public :: <strong>initialize</strong>  => <a href='../proc/initialize_ephemeris.html'>initialize_ephemeris</a> 
     
   </h3></div>
   
@@ -1123,8 +1120,8 @@ private subroutine <a href='../proc/initialize_ephemeris.html'>initialize_epheme
   
   <td></td><td>::</td>
   <td><strong>km</strong></td><td><p>defining physical units of the output states.
- <code>km = .true.</code>  : km and km/sec [default],
- <code>km = .false.</code> : au and au/day.</p></td>
+<code>km = .true.</code>  : km and km/sec [default],
+<code>km = .false.</code> : au and au/day.</p></td>
   
 </tr>
 
@@ -1140,9 +1137,9 @@ private subroutine <a href='../proc/initialize_ephemeris.html'>initialize_epheme
   
   <td></td><td>::</td>
   <td><strong>bary</strong></td><td><p>logical flag defining output center.
- only the 9 planets are affected.
- <code>bary = .true.</code>  : center is solar-system barycenter,
- <code>bary = .false.</code> : center is sun [default].</p></td>
+only the 9 planets are affected.
+<code>bary = .true.</code>  : center is solar-system barycenter,
+<code>bary = .false.</code> : center is sun [default].</p></td>
   
 </tr>
 
@@ -1292,12 +1289,12 @@ private subroutine <a href='../proc/get_state.html'>get_state</a>(me, jd, ntarg,
   
   <td>dimension(6)</td><td>::</td>
   <td><strong>rrd</strong></td><td><p>output 6-word d.p. array containing position and velocity
- of point <code>ntarg</code> relative to <code>ncent</code>.
- the units are AU and AU/day (or km and km/sec if <code>me%km=.true.</code>).
- For librations the units are radians and radians
- per day. In the case of nutations the first four words of
- <code>rrd</code> will be set to nutations and rates, having units of
- radians and radians/day.</p></td>
+of point <code>ntarg</code> relative to <code>ncent</code>.
+the units are AU and AU/day (or km and km/sec if <code>me%km=.true.</code>).
+For librations the units are radians and radians
+per day. In the case of nutations the first four words of
+<code>rrd</code> will be set to nutations and rates, having units of
+radians and radians/day.</p></td>
   
 </tr>
 
@@ -1465,7 +1462,7 @@ private subroutine <a href='../proc/get_constants.html'>get_constants</a>(me, na
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-close~2"></span><h3>procedure, public :: <strong>close</strong>  => <a href='../proc/close_ephemeris.html'>close_ephemeris</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-close"></span><h3>procedure, public :: <strong>close</strong>  => <a href='../proc/close_ephemeris.html'>close_ephemeris</a> 
     
   </h3></div>
   
@@ -1563,7 +1560,7 @@ private subroutine <a href='../proc/interp.html'>interp</a>(me, buf, t, ncf, ncm
 
 
 <p>this subroutine differentiates and interpolates a
-  set of chebyshev coefficients to give position and velocity.</p>
+set of chebyshev coefficients to give position and velocity.</p>
     
     <h4>Arguments</h4>
     
@@ -1634,7 +1631,7 @@ private subroutine <a href='../proc/interp.html'>interp</a>(me, buf, t, ncf, ncm
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>ncf</strong></td><td><p># of coefficients per component</p></td>
+  <td><strong>ncf</strong></td><td><a href="None" class="pull-right"><emph>Read more&hellip;</emph></a></td>
   
 </tr>
 
@@ -1649,7 +1646,7 @@ private subroutine <a href='../proc/interp.html'>interp</a>(me, buf, t, ncf, ncm
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>ncm</strong></td><td><p># of components per set of coefficients</p></td>
+  <td><strong>ncm</strong></td><td><a href="None" class="pull-right"><emph>Read more&hellip;</emph></a></td>
   
 </tr>
 
@@ -1664,8 +1661,8 @@ private subroutine <a href='../proc/interp.html'>interp</a>(me, buf, t, ncf, ncm
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>na</strong></td><td><p># of sets of coefficients in full array
- (i.e., # of sub-intervals in full interval)</p></td>
+  <td><strong>na</strong></td><td><h1>of sets of coefficients in full array</h1>
+<p>(i.e., # of sub-intervals in full interval)</p></td>
   
 </tr>
 
@@ -1681,8 +1678,8 @@ private subroutine <a href='../proc/interp.html'>interp</a>(me, buf, t, ncf, ncm
   
   <td></td><td>::</td>
   <td><strong>ifl</strong></td><td><p>integer flag
- = 1 for positions only
- = 2 for pos and vel</p></td>
+= 1 for positions only
+= 2 for pos and vel</p></td>
   
 </tr>
 
@@ -1698,7 +1695,7 @@ private subroutine <a href='../proc/interp.html'>interp</a>(me, buf, t, ncf, ncm
   
   <td>dimension(ncm,*)</td><td>::</td>
   <td><strong>pv</strong></td><td><p>interpolated quantities requested.  dimension
- expected is pv(ncm,ifl), dp.</p></td>
+expected is pv(ncm,ifl), dp.</p></td>
   
 </tr>
 
@@ -1786,17 +1783,17 @@ private subroutine <a href='../proc/state.html'>state</a>(me, et2, list, pv, pnu
   
   <td>dimension(2)</td><td>::</td>
   <td><strong>et2</strong></td><td><p>2-word Julian ephemeris epoch at which interpolation
- is wanted.  any combination of <code>et2(1)+et2(2)</code> which falls
- within the time span on the file is a permissible epoch.</p>
+is wanted.  any combination of <code>et2(1)+et2(2)</code> which falls
+within the time span on the file is a permissible epoch.</p>
 <p><strong><em>a.</em></strong> for ease in programming, the user may put the
-    entire epoch in <code>et2(1)</code> and set <code>et2(2)=0</code>.
- <strong><em>b.</em></strong> for maximum interpolation accuracy, set <code>et2(1)</code> =
-    the most recent midnight at or before interpolation
-    epoch and set <code>et2(2)</code> = fractional part of a day
-    elapsed between <code>et2(1)</code> and epoch.
- <strong><em>c.</em></strong> as an alternative, it may prove convenient to set
-    <code>et2(1)</code> = some fixed epoch, such as start of integration,
-    and <code>et2(2)</code> = elapsed interval between then and epoch.</p></td>
+   entire epoch in <code>et2(1)</code> and set <code>et2(2)=0</code>.
+<strong><em>b.</em></strong> for maximum interpolation accuracy, set <code>et2(1)</code> =
+   the most recent midnight at or before interpolation
+   epoch and set <code>et2(2)</code> = fractional part of a day
+   elapsed between <code>et2(1)</code> and epoch.
+<strong><em>c.</em></strong> as an alternative, it may prove convenient to set
+   <code>et2(1)</code> = some fixed epoch, such as start of integration,
+   and <code>et2(2)</code> = elapsed interval between then and epoch.</p></td>
   
 </tr>
 
@@ -1812,23 +1809,23 @@ private subroutine <a href='../proc/state.html'>state</a>(me, et2, list, pv, pnu
   
   <td>dimension(12)</td><td>::</td>
   <td><strong>list</strong></td><td><p>12-word integer array specifying what interpolation
- is wanted for each of the bodies on the file.
-    <strong><em>list(i) = 0</em></strong> : no interpolation for body i,
-    <strong><em>list(i) = 1</em></strong> : position only,
-    <strong><em>list(i) = 2</em></strong> : position and velocity.</p>
+is wanted for each of the bodies on the file.
+   <strong><em>list(i) = 0</em></strong> : no interpolation for body i,
+   <strong><em>list(i) = 1</em></strong> : position only,
+   <strong><em>list(i) = 2</em></strong> : position and velocity.</p>
 <p>The designation of the astronomical bodies by i is:
-    <strong><em>i = 1</em></strong> : mercury,
-    <strong><em>i = 2</em></strong> : venus,
-    <strong><em>i = 3</em></strong> : earth-moon barycenter,
-    <strong><em>i = 4</em></strong> : mars,
-    <strong><em>i = 5</em></strong> : jupiter,
-    <strong><em>i = 6</em></strong> : saturn,
-    <strong><em>i = 7</em></strong> : uranus,
-    <strong><em>i = 8</em></strong> : neptune,
-    <strong><em>i = 9</em></strong> : pluto,
-    <strong><em>i =10</em></strong> : geocentric moon,
-    <strong><em>i =11</em></strong> : nutations in longitude and obliquity,
-    <strong><em>i =12</em></strong> : lunar librations (if on file).</p></td>
+   <strong><em>i = 1</em></strong> : mercury,
+   <strong><em>i = 2</em></strong> : venus,
+   <strong><em>i = 3</em></strong> : earth-moon barycenter,
+   <strong><em>i = 4</em></strong> : mars,
+   <strong><em>i = 5</em></strong> : jupiter,
+   <strong><em>i = 6</em></strong> : saturn,
+   <strong><em>i = 7</em></strong> : uranus,
+   <strong><em>i = 8</em></strong> : neptune,
+   <strong><em>i = 9</em></strong> : pluto,
+   <strong><em>i =10</em></strong> : geocentric moon,
+   <strong><em>i =11</em></strong> : nutations in longitude and obliquity,
+   <strong><em>i =12</em></strong> : lunar librations (if on file).</p></td>
   
 </tr>
 
@@ -1844,23 +1841,23 @@ private subroutine <a href='../proc/state.html'>state</a>(me, et2, list, pv, pnu
   
   <td>dimension(6,11)</td><td>::</td>
   <td><strong>pv</strong></td><td><p>dp 6 x 11 array that will contain requested interpolated
- quantities (other than nutation, stored in <code>pnut</code>).
- the body specified by <code>list(i)</code> will have its
- state in the array starting at <code>pv(1,i)</code>.
- (on any given call, only those words in <code>pv</code> which are
- affected by the first 10 <code>list</code> entries, and by <code>list(12)</code>
- if librations are on the file, are set.
- the rest of the <code>pv</code> array is untouched.)
- the order of components starting in <code>pv(1,i)</code> is:
- <code>x</code>,<code>y</code>,<code>z</code>,<code>dx</code>,<code>dy</code>,<code>dz</code>.</p>
+quantities (other than nutation, stored in <code>pnut</code>).
+the body specified by <code>list(i)</code> will have its
+state in the array starting at <code>pv(1,i)</code>.
+(on any given call, only those words in <code>pv</code> which are
+affected by the first 10 <code>list</code> entries, and by <code>list(12)</code>
+if librations are on the file, are set.
+the rest of the <code>pv</code> array is untouched.)
+the order of components starting in <code>pv(1,i)</code> is:
+<code>x</code>,<code>y</code>,<code>z</code>,<code>dx</code>,<code>dy</code>,<code>dz</code>.</p>
 <p>All output vectors are referenced to the earth mean
- equator and equinox of J2000 if the DE number is 200 or
- greater; of B1950 if the DE number is less than 200.</p>
+equator and equinox of J2000 if the DE number is 200 or
+greater; of B1950 if the DE number is less than 200.</p>
 <p>The moon state is always geocentric; the other nine states
- are either heliocentric or solar-system barycentric,
- depending on the setting of the <code>bary</code> variable in the class.</p>
+are either heliocentric or solar-system barycentric,
+depending on the setting of the <code>bary</code> variable in the class.</p>
 <p>Lunar librations, if on file, are put into <code>pv(k,11)</code> if
- <code>list(12)</code> is <code>1</code> or <code>2</code>.</p></td>
+<code>list(12)</code> is <code>1</code> or <code>2</code>.</p></td>
   
 </tr>
 
@@ -1876,8 +1873,8 @@ private subroutine <a href='../proc/state.html'>state</a>(me, et2, list, pv, pnu
   
   <td>dimension(4)</td><td>::</td>
   <td><strong>pnut</strong></td><td><p>dp 4-word array that will contain nutations and rates,
- depending on the setting of <code>list(11)</code>.  the order of
- quantities in <code>pnut</code> is:</p>
+depending on the setting of <code>list(11)</code>.  the order of
+quantities in <code>pnut</code> is:</p>
 <ul>
 <li><code>d psi</code>  (nutation in longitude),</li>
 <li><code>d epsilon</code> (nutation in obliquity),</li>

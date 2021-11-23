@@ -262,7 +262,7 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~36"></span>class(<a href='../type/rk_variable_step_class.html'>rk_variable_step_class</a>),</td>
+  <td><span class="anchor" id="variable-me~37"></span>class(<a href='../type/rk_variable_step_class.html'>rk_variable_step_class</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -277,7 +277,7 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~8"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-a~19"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -292,21 +292,21 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
 <tr>
   
-  <td><span class="anchor" id="variable-b"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-b~9"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
   <td><strong>b</strong></td><td><p>a value of the independent variable used to define
- the direction of integration. a reasonable choice is to
- set <code>b</code> to the first point at which a solution is desired.
- you can also use <code>b</code>, if necessary, to restrict the length
- of the first integration step because the algorithm will
- not compute a starting step length which is bigger than
- <code>abs(b-a)</code>, unless <code>b</code> has been chosen too close to <code>a</code>.
- (it is presumed that hstart has been called with <code>b</code>
- different from <code>a</code> on the machine being used. also see the
- discussion about the parameter <code>small</code>.)</p></td>
+the direction of integration. a reasonable choice is to
+set <code>b</code> to the first point at which a solution is desired.
+you can also use <code>b</code>, if necessary, to restrict the length
+of the first integration step because the algorithm will
+not compute a starting step length which is bigger than
+<code>abs(b-a)</code>, unless <code>b</code> has been chosen too close to <code>a</code>.
+(it is presumed that hstart has been called with <code>b</code>
+different from <code>a</code> on the machine being used. also see the
+discussion about the parameter <code>small</code>.)</p></td>
   
 </tr>
 
@@ -316,13 +316,13 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
 <tr>
   
-  <td><span class="anchor" id="variable-y~2"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-y~6"></span>real(kind=wp),</td>
   <td>intent(in),</td>
   <td></td>
   
   <td>dimension(me%n)</td><td>::</td>
   <td><strong>y</strong></td><td><p>the vector of initial values of the <code>neq</code> solution
- components at the initial point <code>a</code>.</p></td>
+components at the initial point <code>a</code>.</p></td>
   
 </tr>
 
@@ -338,8 +338,8 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
   <td>dimension(me%n)</td><td>::</td>
   <td><strong>yprime</strong></td><td><p>the vector of derivatives of the <code>neq</code>
- solution components at the initial point <code>a</code>.
- (defined by the differential equations in subroutine <code>me%f</code>)</p></td>
+solution components at the initial point <code>a</code>.
+(defined by the differential equations in subroutine <code>me%f</code>)</p></td>
   
 </tr>
 
@@ -355,11 +355,11 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
   <td>dimension(me%n)</td><td>::</td>
   <td><strong>etol</strong></td><td><p>the vector of error tolerances corresponding to
- the <code>neq</code> solution components. it is assumed that all
- elements are positive. following the first integration
- step, the tolerances are expected to be used by the
- integrator in an error test which roughly requires that
- <code>abs(local error) &lt;= etol</code> for each vector component.</p></td>
+the <code>neq</code> solution components. it is assumed that all
+elements are positive. following the first integration
+step, the tolerances are expected to be used by the
+integrator in an error test which roughly requires that
+<code>abs(local error) &lt;= etol</code> for each vector component.</p></td>
   
 </tr>
 
@@ -375,7 +375,7 @@ private subroutine hstart(me, a, b, y, yprime, etol, h)
   
   <td></td><td>::</td>
   <td><strong>h</strong></td><td><p>appropriate starting step size to be attempted by the
- differential equation method.</p></td>
+differential equation method.</p></td>
   
 </tr>
 

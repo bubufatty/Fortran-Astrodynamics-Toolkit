@@ -119,7 +119,7 @@
   
   <div class="row">
     <h1>report_func
-   <small>Interface</small>
+   <small>Abstract Interface</small>
     
     </h1>
     
@@ -138,21 +138,21 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.3% of total for procedures.">34 statements</a>
+    title=" 2.0% of total for abstract interfaces.">8 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/rk_module.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/relative_motion_module.f90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/rk_module.f90.html'>rk_module.f90</a></li>
+     <li><a href='../sourcefile/relative_motion_module.f90.html'>relative_motion_module.f90</a></li>
     
-     <li><a href='../module/rk_module.html'>rk_module</a></li>
+     <li><a href='../module/relative_motion_module.html'>relative_motion_module</a></li>
     
   
      <li class="active">report_func</li>
@@ -207,9 +207,9 @@
     <div class="col-md-9" id='text'>
     
     
-      <h2>interface <br>
+      <h2>abstract interface <br>
       
-private subroutine report_func(me, t, x)
+private subroutine report_func(t, rv)
     
     
    
@@ -238,27 +238,12 @@ private subroutine report_func(me, t, x)
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~53"></span>class(<a href='../type/rk_class.html'>rk_class</a>),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>me</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-t~17"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-t~6"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>t</strong></td><td><p>time</p></td>
+  <td><strong>t</strong></td><td><p>time [sec]</p></td>
   
 </tr>
 
@@ -268,12 +253,12 @@ private subroutine report_func(me, t, x)
   
 <tr>
   
-  <td><span class="anchor" id="variable-x~43"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-rv~2"></span>real(kind=wp),</td>
   <td>intent(in),</td>
   <td></td>
   
-  <td>dimension(me%n)</td><td>::</td>
-  <td><strong>x</strong></td><td><p>state vector</p></td>
+  <td>dimension(6)</td><td>::</td>
+  <td><strong>rv</strong></td><td><p>state [km,km/s]</p></td>
   
 </tr>
 
@@ -284,7 +269,7 @@ private subroutine report_func(me, t, x)
     
     
     <h3>Description</h3>
-    <p>report function</p>
+    <p>for reporting the points in the <a href="../proc/cw_propagator.html">cw_propagator</a>.</p>
     
     <br>
 

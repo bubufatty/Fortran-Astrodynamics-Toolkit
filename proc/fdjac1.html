@@ -219,76 +219,62 @@ public subroutine fdjac1(fcn, n, x, fvec, fjac, ldfjac, iflag, ml, mu, epsfcn, w
 
 
     
-    <div class="codehilite"><pre><span></span><code> <span class="n">this</span> <span class="n">subroutine</span> <span class="n">computes</span> <span class="n">a</span> <span class="n">forward</span><span class="o">-</span><span class="n">difference</span> <span class="n">approximation</span>
- <span class="n">to</span> <span class="n">the</span> <span class="n">n</span> <span class="n">by</span> <span class="n">n</span> <span class="n">jacobian</span> <span class="n">matrix</span> <span class="n">associated</span> <span class="n">with</span> <span class="n">a</span> <span class="n">specified</span>
- <span class="n">problem</span> <span class="n">of</span> <span class="n">n</span> <span class="n">functions</span> <span class="ow">in</span> <span class="n">n</span> <span class="n">variables</span><span class="o">.</span> <span class="k">if</span> <span class="n">the</span> <span class="n">jacobian</span> <span class="n">has</span>
- <span class="n">a</span> <span class="n">banded</span> <span class="n">form</span><span class="p">,</span> <span class="n">then</span> <span class="n">function</span> <span class="n">evaluations</span> <span class="n">are</span> <span class="n">saved</span> <span class="n">by</span> <span class="n">only</span>
- <span class="n">approximating</span> <span class="n">the</span> <span class="n">nonzero</span> <span class="n">terms</span><span class="o">.</span>
+    <p>this subroutine computes a forward-difference approximation
+to the n by n jacobian matrix associated with a specified
+problem of n functions in n variables. if the jacobian has
+a banded form, then function evaluations are saved by only
+approximating the nonzero terms.</p>
+<p>the subroutine statement is</p>
+<p>subroutine fdjac1(fcn,n,x,fvec,fjac,ldfjac,iflag,ml,mu,epsfcn,wa1,wa2)</p>
+<p>where</p>
+<p>fcn is the name of the user-supplied subroutine which
+    calculates the functions. fcn must be declared
+    in an external statement in the user calling
+    program, and should be written as follows.</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">subroutine</span> <span class="nv">fcn</span><span class="ss">(</span><span class="nv">n</span>,<span class="nv">x</span>,<span class="nv">fvec</span>,<span class="nv">iflag</span><span class="ss">)</span>
+<span class="nv">integer</span> <span class="nv">n</span>,<span class="nv">iflag</span>
+<span class="nv">real</span><span class="ss">(</span><span class="nv">wp</span><span class="ss">)</span> <span class="nv">x</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span>,<span class="nv">fvec</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span>
+<span class="o">----------</span>
+<span class="nv">calculate</span> <span class="nv">the</span> <span class="nv">functions</span> <span class="nv">at</span> <span class="nv">x</span> <span class="nv">and</span>
+<span class="k">return</span> <span class="nv">this</span> <span class="nv">vector</span> <span class="nv">in</span> <span class="nv">fvec</span>.
+<span class="o">----------</span>
+<span class="k">return</span>
+<span class="k">end</span>
 
- <span class="n">the</span> <span class="n">subroutine</span> <span class="n">statement</span> <span class="k">is</span>
-
-   <span class="n">subroutine</span> <span class="n">fdjac1</span><span class="p">(</span><span class="n">fcn</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">fvec</span><span class="p">,</span><span class="n">fjac</span><span class="p">,</span><span class="n">ldfjac</span><span class="p">,</span><span class="n">iflag</span><span class="p">,</span><span class="n">ml</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">epsfcn</span><span class="p">,</span><span class="n">wa1</span><span class="p">,</span><span class="n">wa2</span><span class="p">)</span>
-
- <span class="n">where</span>
-
-   <span class="n">fcn</span> <span class="k">is</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">user</span><span class="o">-</span><span class="n">supplied</span> <span class="n">subroutine</span> <span class="n">which</span>
-     <span class="n">calculates</span> <span class="n">the</span> <span class="n">functions</span><span class="o">.</span> <span class="n">fcn</span> <span class="n">must</span> <span class="n">be</span> <span class="n">declared</span>
-     <span class="ow">in</span> <span class="n">an</span> <span class="n">external</span> <span class="n">statement</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">user</span> <span class="n">calling</span>
-     <span class="n">program</span><span class="p">,</span> <span class="ow">and</span> <span class="n">should</span> <span class="n">be</span> <span class="n">written</span> <span class="k">as</span> <span class="n">follows</span><span class="o">.</span>
-
-     <span class="n">subroutine</span> <span class="n">fcn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">fvec</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-     <span class="n">integer</span> <span class="n">n</span><span class="p">,</span><span class="n">iflag</span>
-     <span class="n">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span> <span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">fvec</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-     <span class="o">----------</span>
-     <span class="n">calculate</span> <span class="n">the</span> <span class="n">functions</span> <span class="n">at</span> <span class="n">x</span> <span class="ow">and</span>
-     <span class="k">return</span> <span class="n">this</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">fvec</span><span class="o">.</span>
-     <span class="o">----------</span>
-     <span class="k">return</span>
-     <span class="n">end</span>
-
-     <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">iflag</span> <span class="n">should</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">changed</span> <span class="n">by</span> <span class="n">fcn</span> <span class="n">unless</span>
-     <span class="n">the</span> <span class="n">user</span> <span class="n">wants</span> <span class="n">to</span> <span class="n">terminate</span> <span class="n">execution</span> <span class="n">of</span> <span class="n">fdjac1</span><span class="o">.</span>
-     <span class="ow">in</span> <span class="n">this</span> <span class="n">case</span> <span class="n">set</span> <span class="n">iflag</span> <span class="n">to</span> <span class="n">a</span> <span class="n">negative</span> <span class="n">integer</span><span class="o">.</span>
-
-   <span class="n">n</span> <span class="k">is</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="n">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">number</span>
-     <span class="n">of</span> <span class="n">functions</span> <span class="ow">and</span> <span class="n">variables</span><span class="o">.</span>
-
-   <span class="n">x</span> <span class="k">is</span> <span class="n">an</span> <span class="n">input</span> <span class="n">array</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span><span class="o">.</span>
-
-   <span class="n">fvec</span> <span class="k">is</span> <span class="n">an</span> <span class="n">input</span> <span class="n">array</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span> <span class="n">which</span> <span class="n">must</span> <span class="n">contain</span> <span class="n">the</span>
-     <span class="n">functions</span> <span class="n">evaluated</span> <span class="n">at</span> <span class="n">x</span><span class="o">.</span>
-
-   <span class="n">fjac</span> <span class="k">is</span> <span class="n">an</span> <span class="n">output</span> <span class="n">n</span> <span class="n">by</span> <span class="n">n</span> <span class="n">array</span> <span class="n">which</span> <span class="n">contains</span> <span class="n">the</span>
-     <span class="n">approximation</span> <span class="n">to</span> <span class="n">the</span> <span class="n">jacobian</span> <span class="n">matrix</span> <span class="n">evaluated</span> <span class="n">at</span> <span class="n">x</span><span class="o">.</span>
-
-   <span class="n">ldfjac</span> <span class="k">is</span> <span class="n">a</span> <span class="n">positive</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="ow">not</span> <span class="n">less</span> <span class="n">than</span> <span class="n">n</span>
-     <span class="n">which</span> <span class="n">specifies</span> <span class="n">the</span> <span class="n">leading</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span> <span class="n">fjac</span><span class="o">.</span>
-
-   <span class="n">iflag</span> <span class="k">is</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">variable</span> <span class="n">which</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">terminate</span>
-     <span class="n">the</span> <span class="n">execution</span> <span class="n">of</span> <span class="n">fdjac1</span><span class="o">.</span> <span class="n">see</span> <span class="n">description</span> <span class="n">of</span> <span class="n">fcn</span><span class="o">.</span>
-
-   <span class="n">ml</span> <span class="k">is</span> <span class="n">a</span> <span class="n">nonnegative</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="n">which</span> <span class="n">specifies</span>
-     <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">subdiagonals</span> <span class="n">within</span> <span class="n">the</span> <span class="n">band</span> <span class="n">of</span> <span class="n">the</span>
-     <span class="n">jacobian</span> <span class="n">matrix</span><span class="o">.</span> <span class="k">if</span> <span class="n">the</span> <span class="n">jacobian</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">banded</span><span class="p">,</span> <span class="n">set</span>
-     <span class="n">ml</span> <span class="n">to</span> <span class="n">at</span> <span class="n">least</span> <span class="n">n</span> <span class="o">-</span> <span class="mf">1.</span>
-
-   <span class="n">epsfcn</span> <span class="k">is</span> <span class="n">an</span> <span class="n">input</span> <span class="n">variable</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">determining</span> <span class="n">a</span> <span class="n">suitable</span>
-     <span class="n">step</span> <span class="n">length</span> <span class="k">for</span> <span class="n">the</span> <span class="n">forward</span><span class="o">-</span><span class="n">difference</span> <span class="n">approximation</span><span class="o">.</span> <span class="n">this</span>
-     <span class="n">approximation</span> <span class="n">assumes</span> <span class="n">that</span> <span class="n">the</span> <span class="n">relative</span> <span class="n">errors</span> <span class="ow">in</span> <span class="n">the</span>
-     <span class="n">functions</span> <span class="n">are</span> <span class="n">of</span> <span class="n">the</span> <span class="n">order</span> <span class="n">of</span> <span class="n">epsfcn</span><span class="o">.</span> <span class="k">if</span> <span class="n">epsfcn</span> <span class="k">is</span> <span class="n">less</span>
-     <span class="n">than</span> <span class="n">the</span> <span class="n">machine</span> <span class="n">precision</span><span class="p">,</span> <span class="n">it</span> <span class="k">is</span> <span class="n">assumed</span> <span class="n">that</span> <span class="n">the</span> <span class="n">relative</span>
-     <span class="n">errors</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">functions</span> <span class="n">are</span> <span class="n">of</span> <span class="n">the</span> <span class="n">order</span> <span class="n">of</span> <span class="n">the</span> <span class="n">machine</span>
-     <span class="n">precision</span><span class="o">.</span>
-
-   <span class="n">mu</span> <span class="k">is</span> <span class="n">a</span> <span class="n">nonnegative</span> <span class="n">integer</span> <span class="n">input</span> <span class="n">variable</span> <span class="n">which</span> <span class="n">specifies</span>
-     <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">superdiagonals</span> <span class="n">within</span> <span class="n">the</span> <span class="n">band</span> <span class="n">of</span> <span class="n">the</span>
-     <span class="n">jacobian</span> <span class="n">matrix</span><span class="o">.</span> <span class="k">if</span> <span class="n">the</span> <span class="n">jacobian</span> <span class="k">is</span> <span class="ow">not</span> <span class="n">banded</span><span class="p">,</span> <span class="n">set</span>
-     <span class="n">mu</span> <span class="n">to</span> <span class="n">at</span> <span class="n">least</span> <span class="n">n</span> <span class="o">-</span> <span class="mf">1.</span>
-
-   <span class="n">wa1</span> <span class="ow">and</span> <span class="n">wa2</span> <span class="n">are</span> <span class="n">work</span> <span class="n">arrays</span> <span class="n">of</span> <span class="n">length</span> <span class="n">n</span><span class="o">.</span> <span class="k">if</span> <span class="n">ml</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">is</span> <span class="n">at</span>
-     <span class="n">least</span> <span class="n">n</span><span class="p">,</span> <span class="n">then</span> <span class="n">the</span> <span class="n">jacobian</span> <span class="k">is</span> <span class="n">considered</span> <span class="n">dense</span><span class="p">,</span> <span class="ow">and</span> <span class="n">wa2</span> <span class="k">is</span>
-     <span class="ow">not</span> <span class="n">referenced</span><span class="o">.</span>
+<span class="nv">the</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">iflag</span> <span class="nv">should</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">changed</span> <span class="nv">by</span> <span class="nv">fcn</span> <span class="nv">unless</span>
+<span class="nv">the</span> <span class="nv">user</span> <span class="nv">wants</span> <span class="nv">to</span> <span class="nv">terminate</span> <span class="nv">execution</span> <span class="nv">of</span> <span class="nv">fdjac1</span>.
+<span class="nv">in</span> <span class="nv">this</span> <span class="nv">case</span> <span class="nv">set</span> <span class="nv">iflag</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">negative</span> <span class="nv">integer</span>.
 </code></pre></div>
+
+<p>n is a positive integer input variable set to the number
+    of functions and variables.</p>
+<p>x is an input array of length n.</p>
+<p>fvec is an input array of length n which must contain the
+    functions evaluated at x.</p>
+<p>fjac is an output n by n array which contains the
+    approximation to the jacobian matrix evaluated at x.</p>
+<p>ldfjac is a positive integer input variable not less than n
+    which specifies the leading dimension of the array fjac.</p>
+<p>iflag is an integer variable which can be used to terminate
+    the execution of fdjac1. see description of fcn.</p>
+<p>ml is a nonnegative integer input variable which specifies
+    the number of subdiagonals within the band of the
+    jacobian matrix. if the jacobian is not banded, set
+    ml to at least n - 1.</p>
+<p>epsfcn is an input variable used in determining a suitable
+    step length for the forward-difference approximation. this
+    approximation assumes that the relative errors in the
+    functions are of the order of epsfcn. if epsfcn is less
+    than the machine precision, it is assumed that the relative
+    errors in the functions are of the order of the machine
+    precision.</p>
+<p>mu is a nonnegative integer input variable which specifies
+    the number of superdiagonals within the band of the
+    jacobian matrix. if the jacobian is not banded, set
+    mu to at least n - 1.</p>
+<p>wa1 and wa2 are work arrays of length n. if ml + mu + 1 is at
+    least n, then the jacobian is considered dense, and wa2 is
+    not referenced.</p>
     
 
     <h3>Arguments</h3>
@@ -324,7 +310,7 @@ public subroutine fdjac1(fcn, n, x, fvec, fjac, ldfjac, iflag, ml, mu, epsfcn, w
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~22"></span>integer</td>
+  <td><span class="anchor" id="variable-n~38"></span>integer</td>
   <td></td>
   <td></td>
   
@@ -339,7 +325,7 @@ public subroutine fdjac1(fcn, n, x, fvec, fjac, ldfjac, iflag, ml, mu, epsfcn, w
   
 <tr>
   
-  <td><span class="anchor" id="variable-x~34"></span>real(kind=wp)</td>
+  <td><span class="anchor" id="variable-x~45"></span>real(kind=wp)</td>
   <td></td>
   <td></td>
   
@@ -399,7 +385,7 @@ public subroutine fdjac1(fcn, n, x, fvec, fjac, ldfjac, iflag, ml, mu, epsfcn, w
   
 <tr>
   
-  <td><span class="anchor" id="variable-iflag~4"></span>integer</td>
+  <td><span class="anchor" id="variable-iflag~5"></span>integer</td>
   <td></td>
   <td></td>
   
@@ -429,7 +415,7 @@ public subroutine fdjac1(fcn, n, x, fvec, fjac, ldfjac, iflag, ml, mu, epsfcn, w
   
 <tr>
   
-  <td><span class="anchor" id="variable-mu~14"></span>integer</td>
+  <td><span class="anchor" id="variable-mu~31"></span>integer</td>
   <td></td>
   <td></td>
   

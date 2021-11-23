@@ -209,11 +209,11 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-get_rv~2">get_rv</a>
+      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-get_rv~4">get_rv</a>
       
-      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-initialize~3">initialize</a>
+      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-initialize~6">initialize</a>
       
-      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-close">close</a>
+      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-close~2">close</a>
       
     </div>
   </div>
@@ -236,11 +236,11 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>type, public, extends(<a href='../type/ephemeris_class.html'>ephemeris_class</a>) :: spice_ephemeris</h2>
+      <h2>type, public, extends(ephemeris_class) :: spice_ephemeris</h2>
     <p>Main class for accessing the SPICE ephemeris system.</p>
 <p>Note: SPICE is not object-oriented or threadsafe. So,
- while this class provides an object-oriented like interface
- to SPICE, it should really be treated as a singleton.</p>
+while this class provides an object-oriented like interface
+to SPICE, it should really be treated as a singleton.</p>
     <br>
     
     <div class="panel panel-default">
@@ -265,18 +265,15 @@
 <polygon fill="none" stroke="black" points="240,-24 137,-24 137,0 240,0 240,-24"/>
 <text text-anchor="middle" x="188.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">spice_ephemeris</text>
 </g>
-<!-- type~ephemeris_class -->
+<!-- ephemeris_class -->
 <g id="type~~spice_ephemeris~~InheritsGraph_node2" class="node">
-<title>type~ephemeris_class</title>
-<g id="a_type~~spice_ephemeris~~InheritsGraph_node2"><a xlink:href=".././type/ephemeris_class.html" xlink:title="ephemeris_class">
+<title>ephemeris_class</title>
 <polygon fill="#5cb85c" stroke="#5cb85c" points="101,-24 0,-24 0,0 101,0 101,-24"/>
 <text text-anchor="middle" x="50.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ephemeris_class</text>
-</a>
 </g>
-</g>
-<!-- type~spice_ephemeris&#45;&gt;type~ephemeris_class -->
+<!-- type~spice_ephemeris&#45;&gt;ephemeris_class -->
 <g id="type~~spice_ephemeris~~InheritsGraph_edge1" class="edge">
-<title>type~spice_ephemeris&#45;&gt;type~ephemeris_class</title>
+<title>type~spice_ephemeris&#45;&gt;ephemeris_class</title>
 <path fill="none" stroke="#000000" d="M136.86,-12C128.59,-12 119.95,-12 111.49,-12"/>
 <polygon fill="#000000" stroke="#000000" points="111.28,-8.5 101.28,-12 111.28,-15.5 111.28,-8.5"/>
 </g>
@@ -363,11 +360,11 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-get_rv~2">get_rv</a>
+      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-get_rv~4">get_rv</a>
       
-      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-initialize~3">initialize</a>
+      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-initialize~6">initialize</a>
       
-      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-close">close</a>
+      <a class="list-group-item" href="../type/spice_ephemeris.html#boundprocedure-close~2">close</a>
       
     </div>
   </div>
@@ -409,7 +406,7 @@
   
   <td><span class="anchor" id="variable-kernels"></span>character(len=:),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>dimension(:), allocatable</td><td>::</td>
   <td><strong>kernels</strong></td><td></td><td></td><td><p>the list of kernels</p></td>
   
@@ -432,7 +429,7 @@
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_rv~2"></span><h3>procedure, public :: <strong>get_rv</strong>  => <a href='../proc/get_rv_from_spice_ephemeris.html'>get_rv_from_spice_ephemeris</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_rv~4"></span><h3>procedure, public :: <strong>get_rv</strong>  => <a href='../proc/get_rv_from_spice_ephemeris.html'>get_rv_from_spice_ephemeris</a> 
     
   </h3></div>
   
@@ -579,7 +576,7 @@ private subroutine <a href='../proc/get_rv_from_spice_ephemeris.html'>get_rv_fro
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-initialize~3"></span><h3>procedure, public :: <strong>initialize</strong>  => <a href='../proc/initialize_spice_ephemeris.html'>initialize_spice_ephemeris</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-initialize~6"></span><h3>procedure, public :: <strong>initialize</strong>  => <a href='../proc/initialize_spice_ephemeris.html'>initialize_spice_ephemeris</a> 
     
   </h3></div>
   
@@ -666,7 +663,7 @@ private subroutine <a href='../proc/initialize_spice_ephemeris.html'>initialize_
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-close"></span><h3>procedure, public :: <strong>close</strong>  => <a href='../proc/close_spice_ephemeris.html'>close_spice_ephemeris</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-close~2"></span><h3>procedure, public :: <strong>close</strong>  => <a href='../proc/close_spice_ephemeris.html'>close_spice_ephemeris</a> 
     
   </h3></div>
   

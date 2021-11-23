@@ -224,7 +224,7 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
 
     
     <p>Read the gravity coefficient file.
-  Example file: ftp://ftp.csr.utexas.edu/pub/grav/EGM96.GEO.Z</p>
+ Example file: ftp://ftp.csr.utexas.edu/pub/grav/EGM96.GEO.Z</p>
     
 
     <h3>Arguments</h3>
@@ -245,7 +245,7 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~61"></span>class(<a href='../type/geopotential_model.html'>geopotential_model</a>),</td>
+  <td><span class="anchor" id="variable-me~65"></span>class(<a href='../type/geopotential_model.html'>geopotential_model</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -260,7 +260,7 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-filename~2"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-filename~3"></span>character(len=*),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -305,7 +305,7 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-status_ok~15"></span>logical,</td>
+  <td><span class="anchor" id="variable-status_ok~19"></span>logical,</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -345,18 +345,18 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
 <polygon fill="none" stroke="black" points="131,-62.47 0,-62.47 0,-38.47 131,-38.47 131,-62.47"/>
 <text text-anchor="middle" x="65.5" y="-48.07" font-family="Helvetica,sans-Serif" font-size="10.50">read_geopotential_file</text>
 </g>
-<!-- proc~get_format_statement -->
+<!-- proc~number_of_coefficients -->
 <g id="proc~~read_geopotential_file~~CallsGraph_node2" class="node">
-<title>proc~get_format_statement</title>
-<g id="a_proc~~read_geopotential_file~~CallsGraph_node2"><a xlink:href=".././proc/get_format_statement.html" xlink:title="get_format_statement">
-<polygon fill="#d9534f" stroke="#d9534f" points="300.5,-125.47 170.5,-125.47 170.5,-101.47 300.5,-101.47 300.5,-125.47"/>
-<text text-anchor="middle" x="235.5" y="-111.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_format_statement</text>
+<title>proc~number_of_coefficients</title>
+<g id="a_proc~~read_geopotential_file~~CallsGraph_node2"><a xlink:href=".././proc/number_of_coefficients.html" xlink:title="number_of_coefficients">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="304,-125.47 167,-125.47 167,-101.47 304,-101.47 304,-125.47"/>
+<text text-anchor="middle" x="235.5" y="-111.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">number_of_coefficients</text>
 </a>
 </g>
 </g>
-<!-- proc~read_geopotential_file&#45;&gt;proc~get_format_statement -->
+<!-- proc~read_geopotential_file&#45;&gt;proc~number_of_coefficients -->
 <g id="proc~~read_geopotential_file~~CallsGraph_edge1" class="edge">
-<title>proc~read_geopotential_file&#45;&gt;proc~get_format_statement</title>
+<title>proc~read_geopotential_file&#45;&gt;proc~number_of_coefficients</title>
 <path fill="none" stroke="#000000" d="M93.53,-62.58C113.6,-71.37 141.76,-83.29 167,-92.47 172.47,-94.45 178.23,-96.43 183.98,-98.32"/>
 <polygon fill="#000000" stroke="#000000" points="183.01,-101.69 193.6,-101.42 185.16,-95.02 183.01,-101.69"/>
 </g>
@@ -375,20 +375,20 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
 <path fill="none" stroke="#000000" d="M131.45,-58.59C154.15,-61.42 178.81,-64.5 198.31,-66.94"/>
 <polygon fill="#000000" stroke="#000000" points="197.93,-70.42 208.28,-68.19 198.79,-63.48 197.93,-70.42"/>
 </g>
-<!-- proc~number_of_coefficients -->
+<!-- proc~get_format_statement -->
 <g id="proc~~read_geopotential_file~~CallsGraph_node4" class="node">
-<title>proc~number_of_coefficients</title>
-<g id="a_proc~~read_geopotential_file~~CallsGraph_node4"><a xlink:href=".././proc/number_of_coefficients.html" xlink:title="number_of_coefficients">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="304,-41.47 167,-41.47 167,-17.47 304,-17.47 304,-41.47"/>
-<text text-anchor="middle" x="235.5" y="-27.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">number_of_coefficients</text>
+<title>proc~get_format_statement</title>
+<g id="a_proc~~read_geopotential_file~~CallsGraph_node4"><a xlink:href=".././proc/get_format_statement.html" xlink:title="get_format_statement">
+<polygon fill="#d9534f" stroke="#d9534f" points="300.5,-41.47 170.5,-41.47 170.5,-17.47 300.5,-17.47 300.5,-41.47"/>
+<text text-anchor="middle" x="235.5" y="-27.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">get_format_statement</text>
 </a>
 </g>
 </g>
-<!-- proc~read_geopotential_file&#45;&gt;proc~number_of_coefficients -->
-<g id="proc~~read_geopotential_file~~CallsGraph_edge3" class="edge">
-<title>proc~read_geopotential_file&#45;&gt;proc~number_of_coefficients</title>
-<path fill="none" stroke="#000000" d="M131.45,-42.35C139.82,-41.3 148.44,-40.22 156.98,-39.16"/>
-<polygon fill="#000000" stroke="#000000" points="157.45,-42.62 166.94,-37.91 156.58,-35.68 157.45,-42.62"/>
+<!-- proc~read_geopotential_file&#45;&gt;proc~get_format_statement -->
+<g id="proc~~read_geopotential_file~~CallsGraph_edge4" class="edge">
+<title>proc~read_geopotential_file&#45;&gt;proc~get_format_statement</title>
+<path fill="none" stroke="#000000" d="M131.45,-42.35C140.91,-41.17 150.71,-39.94 160.33,-38.74"/>
+<polygon fill="#000000" stroke="#000000" points="160.78,-42.21 170.27,-37.49 159.92,-35.26 160.78,-42.21"/>
 </g>
 <!-- proc~fl -->
 <g id="proc~~read_geopotential_file~~CallsGraph_node5" class="node">
@@ -400,7 +400,7 @@ private subroutine read_geopotential_file(me, filename, nmax, mmax, status_ok)
 </g>
 </g>
 <!-- proc~read_geopotential_file&#45;&gt;proc~fl -->
-<g id="proc~~read_geopotential_file~~CallsGraph_edge4" class="edge">
+<g id="proc~~read_geopotential_file~~CallsGraph_edge3" class="edge">
 <title>proc~read_geopotential_file&#45;&gt;proc~fl</title>
 <path fill="none" stroke="#000000" d="M88.44,-38.3C108.27,-28.05 138.63,-14.16 167,-8.47 226.7,3.51 243.99,1.86 304,-8.47 312.74,-9.97 321.88,-12.59 330.37,-15.5"/>
 <polygon fill="#000000" stroke="#000000" points="329.39,-18.87 339.98,-19.01 331.79,-12.29 329.39,-18.87"/>

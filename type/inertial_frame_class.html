@@ -220,7 +220,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>type, public, abstract, extends(<a href='../type/reference_frame.html'>reference_frame</a>) :: inertial_frame_class</h2>
+      <h2>type, private, abstract, extends(<a href='../type/reference_frame.html'>reference_frame</a>) :: inertial_frame_class</h2>
     <p>a non-rotating frame (a frame where the orientation axes are time invariant)</p>
     <br>
     
@@ -521,10 +521,10 @@ private subroutine <a href='../proc/transform.html'>transform</a>(from, rv, to, 
 
 
 <p>Transform a Cartesian state from one reference frame to another at
-  a specified epoch. The <code>from</code> and <code>to</code> <a href="../type/reference_frame.html">reference_frame</a>s may each
-  be defined at a different epoch. The <code>et</code> ephemeris time is the time
-  the transformation is to be done, and accounts for the motion of the two
-  frame centers from <code>from%et</code> and <code>to%et</code> to <code>et</code>.</p>
+a specified epoch. The <code>from</code> and <code>to</code> <a href="../type/reference_frame.html">reference_frame</a>s may each
+be defined at a different epoch. The <code>et</code> ephemeris time is the time
+the transformation is to be done, and accounts for the motion of the two
+frame centers from <code>from%et</code> and <code>to%et</code> to <code>et</code>.</p>
     
     <h4>Arguments</h4>
     
@@ -605,7 +605,7 @@ private subroutine <a href='../proc/transform.html'>transform</a>(from, rv, to, 
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/ephemeris_class.html'>ephemeris_class</a>),</td>
+  <td><span class="anchor" ></span>class(ephemeris_class),</td>
   <td>intent(inout)</td>
   <td></td>
   

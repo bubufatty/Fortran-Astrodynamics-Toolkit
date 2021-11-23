@@ -176,32 +176,6 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-name~2">name</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-filename">filename</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-nmax">nmax</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-mmax">mmax</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-re">re</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-mu">mu</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-cnm">cnm</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-snm">snm</a>
-      
-    </div>
-  </div>
-</div>
-
-
 
 
 
@@ -356,32 +330,6 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-name~2">name</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-filename">filename</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-nmax">nmax</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-mmax">mmax</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-re">re</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-mu">mu</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-cnm">cnm</a>
-      
-      <a class="list-group-item" href="../type/geopotential_model_kuga_carrara.html#variable-snm">snm</a>
-      
-    </div>
-  </div>
-</div>
-
-
 
 
 
@@ -428,136 +376,6 @@
     </section>
     <br class="visible-xs visible-sm hidden-md">
 
-    
-    <section>
-    <h2>Components</h2>
-    
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th>
-
-<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-name~2"></span>character(len=:),</td>
-  
-  <td>public,</td>
-  <td>allocatable</td><td>::</td>
-  <td><strong>name</strong></td><td></td><td></td><td><p>model name</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-filename"></span>character(len=:),</td>
-  
-  <td>public,</td>
-  <td>allocatable</td><td>::</td>
-  <td><strong>filename</strong></td><td></td><td></td><td><p>model file name</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-nmax"></span>integer,</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>nmax</strong></td><td> =</td><td>0</td><td><p>degree of the model</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-mmax"></span>integer,</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>mmax</strong></td><td> =</td><td>0</td><td><p>order of the model</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-re"></span>real(kind=wp),</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>re</strong></td><td> =</td><td>zero</td><td><p>body radius [km]</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-mu"></span>real(kind=wp),</td>
-  
-  <td>public</td>
-  <td></td><td>::</td>
-  <td><strong>mu</strong></td><td> =</td><td>zero</td><td><p>body grav. parameter [km3/s2]</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-cnm"></span>real(kind=wp),</td>
-  
-  <td>public,</td>
-  <td>dimension(:,:), allocatable</td><td>::</td>
-  <td><strong>cnm</strong></td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-snm"></span>real(kind=wp),</td>
-  
-  <td>public,</td>
-  <td>dimension(:,:), allocatable</td><td>::</td>
-  <td><strong>snm</strong></td><td></td><td></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-    </section>
-    <br>
     
     
     
@@ -609,7 +427,7 @@ private subroutine <a href='../proc/read_geopotential_file.html'>read_geopotenti
 
 
 <p>Read the gravity coefficient file.
-  Example file: ftp://ftp.csr.utexas.edu/pub/grav/EGM96.GEO.Z</p>
+ Example file: ftp://ftp.csr.utexas.edu/pub/grav/EGM96.GEO.Z</p>
     
     <h4>Arguments</h4>
     
@@ -716,7 +534,7 @@ private subroutine <a href='../proc/read_geopotential_file.html'>read_geopotenti
     
      
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy~4"></span><h3>procedure, public :: <strong>destroy</strong>  => <a href='../proc/destroy_geopotential_model.html'>destroy_geopotential_model</a> 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy~4"></span><h3>procedure, public :: <strong>destroy</strong>  => <a href='../proc/destroy_geopotential_model~2.html'>destroy_geopotential_model</a> 
     
   </h3></div>
   
@@ -728,7 +546,7 @@ private subroutine <a href='../proc/read_geopotential_file.html'>read_geopotenti
           
     
     <h3>
-private subroutine <a href='../proc/destroy_geopotential_model.html'>destroy_geopotential_model</a>(me)
+private subroutine <a href='../proc/destroy_geopotential_model~2.html'>destroy_geopotential_model</a>(me)
     
     
    

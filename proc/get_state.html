@@ -256,7 +256,7 @@ private subroutine get_state(me, jd, ntarg, ncent, rrd, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~63"></span>class(<a href='../type/jpl_ephemeris.html'>jpl_ephemeris</a>),</td>
+  <td><span class="anchor" id="variable-me~53"></span>class(<a href='../type/jpl_ephemeris.html'>jpl_ephemeris</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -271,7 +271,7 @@ private subroutine get_state(me, jd, ntarg, ncent, rrd, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-jd~9"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-jd~8"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -322,12 +322,12 @@ private subroutine get_state(me, jd, ntarg, ncent, rrd, status_ok)
   
   <td>dimension(6)</td><td>::</td>
   <td><strong>rrd</strong></td><td><p>output 6-word d.p. array containing position and velocity
- of point <code>ntarg</code> relative to <code>ncent</code>.
- the units are AU and AU/day (or km and km/sec if <code>me%km=.true.</code>).
- For librations the units are radians and radians
- per day. In the case of nutations the first four words of
- <code>rrd</code> will be set to nutations and rates, having units of
- radians and radians/day.</p></td>
+of point <code>ntarg</code> relative to <code>ncent</code>.
+the units are AU and AU/day (or km and km/sec if <code>me%km=.true.</code>).
+For librations the units are radians and radians
+per day. In the case of nutations the first four words of
+<code>rrd</code> will be set to nutations and rates, having units of
+radians and radians/day.</p></td>
   
 </tr>
 
@@ -337,7 +337,7 @@ private subroutine get_state(me, jd, ntarg, ncent, rrd, status_ok)
   
 <tr>
   
-  <td><span class="anchor" id="variable-status_ok~19"></span>logical,</td>
+  <td><span class="anchor" id="variable-status_ok~16"></span>logical,</td>
   <td>intent(out)</td>
   <td></td>
   

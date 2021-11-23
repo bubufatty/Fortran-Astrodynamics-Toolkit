@@ -220,7 +220,7 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
 
     
     <p>this subroutine differentiates and interpolates a
-  set of chebyshev coefficients to give position and velocity.</p>
+set of chebyshev coefficients to give position and velocity.</p>
     
 
     <h3>Arguments</h3>
@@ -241,7 +241,7 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   
 <tr>
   
-  <td><span class="anchor" id="variable-me~64"></span>class(<a href='../type/jpl_ephemeris.html'>jpl_ephemeris</a>),</td>
+  <td><span class="anchor" id="variable-me~54"></span>class(<a href='../type/jpl_ephemeris.html'>jpl_ephemeris</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -271,7 +271,7 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   
 <tr>
   
-  <td><span class="anchor" id="variable-t~19"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-t~21"></span>real(kind=wp),</td>
   <td>intent(in),</td>
   <td></td>
   
@@ -291,7 +291,7 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>ncf</strong></td><td><p># of coefficients per component</p></td>
+  <td><strong>ncf</strong></td><td><h1>of coefficients per component</h1></td>
   
 </tr>
 
@@ -306,7 +306,7 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>ncm</strong></td><td><p># of components per set of coefficients</p></td>
+  <td><strong>ncm</strong></td><td><h1>of components per set of coefficients</h1></td>
   
 </tr>
 
@@ -321,8 +321,8 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>na</strong></td><td><p># of sets of coefficients in full array
- (i.e., # of sub-intervals in full interval)</p></td>
+  <td><strong>na</strong></td><td><h1>of sets of coefficients in full array</h1>
+<p>(i.e., # of sub-intervals in full interval)</p></td>
   
 </tr>
 
@@ -338,8 +338,8 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   
   <td></td><td>::</td>
   <td><strong>ifl</strong></td><td><p>integer flag
- = 1 for positions only
- = 2 for pos and vel</p></td>
+= 1 for positions only
+= 2 for pos and vel</p></td>
   
 </tr>
 
@@ -355,7 +355,7 @@ private subroutine interp(me, buf, t, ncf, ncm, na, ifl, pv)
   
   <td>dimension(ncm,*)</td><td>::</td>
   <td><strong>pv</strong></td><td><p>interpolated quantities requested.  dimension
- expected is pv(ncm,ifl), dp.</p></td>
+expected is pv(ncm,ifl), dp.</p></td>
   
 </tr>
 

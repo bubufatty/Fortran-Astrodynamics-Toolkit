@@ -272,8 +272,8 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
   
   <td></td><td>::</td>
   <td><strong>Nm</strong></td><td><p>must be set to the row dimension of the two-dimensional
- array parameters, A and Z, as declared in the calling
- program dimension statement.</p></td>
+array parameters, A and Z, as declared in the calling
+program dimension statement.</p></td>
   
 </tr>
 
@@ -289,7 +289,7 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
   
   <td></td><td>::</td>
   <td><strong>n</strong></td><td><p>the order of the matrix A.
- N must be less than or equal to NM.</p></td>
+N must be less than or equal to NM.</p></td>
   
 </tr>
 
@@ -299,14 +299,14 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~5"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-a~6"></span>real(kind=wp),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
   <td><strong>a</strong>(Nm,*)</td><td><p>contains the real general matrix.
- dimensioned A(NM,N).
- Note: A is destroyed on output.</p></td>
+dimensioned A(NM,N).
+Note: A is destroyed on output.</p></td>
   
 </tr>
 
@@ -322,11 +322,11 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
   
   <td></td><td>::</td>
   <td><strong>Wr</strong>(*)</td><td><p>real part of the eigenvalues.  The eigenvalues are unordered except
- that complex conjugate pairs of eigenvalues appear consecutively
- with the eigenvalue having the positive imaginary part
- first.  If an error exit is made, the eigenvalues should be
- correct for indices IERR+1, IERR+2, ..., N.  WR and WI are
- one-dimensional REAL arrays, dimensioned WR(N) and WI(N).</p></td>
+that complex conjugate pairs of eigenvalues appear consecutively
+with the eigenvalue having the positive imaginary part
+first.  If an error exit is made, the eigenvalues should be
+correct for indices IERR+1, IERR+2, ..., N.  WR and WI are
+one-dimensional REAL arrays, dimensioned WR(N) and WI(N).</p></td>
   
 </tr>
 
@@ -357,8 +357,8 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
   
   <td></td><td>::</td>
   <td><strong>Matz</strong></td><td><p>an INTEGER variable set equal to zero if only
- eigenvalues are desired.  Otherwise, it is set to any
- non-zero integer for both eigenvalues and eigenvectors.</p></td>
+eigenvalues are desired.  Otherwise, it is set to any
+non-zero integer for both eigenvalues and eigenvectors.</p></td>
   
 </tr>
 
@@ -374,13 +374,13 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
   
   <td></td><td>::</td>
   <td><strong>z</strong>(Nm,*)</td><td><p>contains the real and imaginary parts of the eigenvectors
- if MATZ is not zero.  If the J-th eigenvalue is real, the
- J-th column of Z contains its eigenvector.  If the J-th
- eigenvalue is complex with positive imaginary part, the
- J-th and (J+1)-th columns of Z contain the real and
- imaginary parts of its eigenvector.  The conjugate of this
- vector is the eigenvector for the conjugate eigenvalue.
- Z is a two-dimensional REAL array, dimensioned Z(NM,N).</p></td>
+if MATZ is not zero.  If the J-th eigenvalue is real, the
+J-th column of Z contains its eigenvector.  If the J-th
+eigenvalue is complex with positive imaginary part, the
+J-th and (J+1)-th columns of Z contain the real and
+imaginary parts of its eigenvector.  The conjugate of this
+vector is the eigenvector for the conjugate eigenvalue.
+Z is a two-dimensional REAL array, dimensioned Z(NM,N).</p></td>
   
 </tr>
 
@@ -430,10 +430,10 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
 <li>0 -- for normal return,</li>
 <li>10*N -- if N is greater than NM,</li>
 <li>J    -- if the J-th eigenvalue has not been
-           determined after a total of 30 iterations.
-           The eigenvalues should be correct for indices
-           IERR+1, IERR+2, ..., N, but no eigenvectors are
-           computed.</li>
+          determined after a total of 30 iterations.
+          The eigenvalues should be correct for indices
+          IERR+1, IERR+2, ..., N, but no eigenvectors are
+          computed.</li>
 </ul></td>
   
 </tr>
@@ -469,48 +469,48 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
 <polygon fill="none" stroke="black" points="54,-129 0,-129 0,-105 54,-105 54,-129"/>
 <text text-anchor="middle" x="27" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50">rg</text>
 </g>
-<!-- proc~balanc -->
-<g id="proc~~rg~~CallsGraph_node2" class="node">
-<title>proc~balanc</title>
-<g id="a_proc~~rg~~CallsGraph_node2"><a xlink:href=".././proc/balanc.html" xlink:title="balanc">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-234 90,-234 90,-210 144,-210 144,-234"/>
-<text text-anchor="middle" x="117" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">balanc</text>
-</a>
-</g>
-</g>
-<!-- proc~rg&#45;&gt;proc~balanc -->
-<g id="proc~~rg~~CallsGraph_edge1" class="edge">
-<title>proc~rg&#45;&gt;proc~balanc</title>
-<path fill="none" stroke="#000000" d="M35.55,-129.15C46.43,-146.19 67.69,-177.69 90,-201 90.65,-201.68 91.32,-202.36 92.01,-203.03"/>
-<polygon fill="#000000" stroke="#000000" points="89.97,-205.9 99.76,-209.95 94.64,-200.68 89.97,-205.9"/>
-</g>
-<!-- proc~hqr -->
-<g id="proc~~rg~~CallsGraph_node3" class="node">
-<title>proc~hqr</title>
-<g id="a_proc~~rg~~CallsGraph_node3"><a xlink:href=".././proc/hqr.html" xlink:title="hqr">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-192 90,-192 90,-168 144,-168 144,-192"/>
-<text text-anchor="middle" x="117" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hqr</text>
-</a>
-</g>
-</g>
-<!-- proc~rg&#45;&gt;proc~hqr -->
-<g id="proc~~rg~~CallsGraph_edge2" class="edge">
-<title>proc~rg&#45;&gt;proc~hqr</title>
-<path fill="none" stroke="#000000" d="M44.97,-129.15C57.99,-138.47 76.18,-151.49 90.89,-162.02"/>
-<polygon fill="#000000" stroke="#000000" points="88.92,-164.91 99.08,-167.89 92.99,-159.22 88.92,-164.91"/>
-</g>
 <!-- proc~eltran -->
-<g id="proc~~rg~~CallsGraph_node4" class="node">
+<g id="proc~~rg~~CallsGraph_node2" class="node">
 <title>proc~eltran</title>
-<g id="a_proc~~rg~~CallsGraph_node4"><a xlink:href=".././proc/eltran.html" xlink:title="eltran">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-150 90,-150 90,-126 144,-126 144,-150"/>
-<text text-anchor="middle" x="117" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eltran</text>
+<g id="a_proc~~rg~~CallsGraph_node2"><a xlink:href=".././proc/eltran.html" xlink:title="eltran">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-234 90,-234 90,-210 144,-210 144,-234"/>
+<text text-anchor="middle" x="117" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eltran</text>
 </a>
 </g>
 </g>
 <!-- proc~rg&#45;&gt;proc~eltran -->
-<g id="proc~~rg~~CallsGraph_edge4" class="edge">
+<g id="proc~~rg~~CallsGraph_edge1" class="edge">
 <title>proc~rg&#45;&gt;proc~eltran</title>
+<path fill="none" stroke="#000000" d="M35.55,-129.15C46.43,-146.19 67.69,-177.69 90,-201 90.65,-201.68 91.32,-202.36 92.01,-203.03"/>
+<polygon fill="#000000" stroke="#000000" points="89.97,-205.9 99.76,-209.95 94.64,-200.68 89.97,-205.9"/>
+</g>
+<!-- proc~balbak -->
+<g id="proc~~rg~~CallsGraph_node3" class="node">
+<title>proc~balbak</title>
+<g id="a_proc~~rg~~CallsGraph_node3"><a xlink:href=".././proc/balbak.html" xlink:title="balbak">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-192 90,-192 90,-168 144,-168 144,-192"/>
+<text text-anchor="middle" x="117" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">balbak</text>
+</a>
+</g>
+</g>
+<!-- proc~rg&#45;&gt;proc~balbak -->
+<g id="proc~~rg~~CallsGraph_edge2" class="edge">
+<title>proc~rg&#45;&gt;proc~balbak</title>
+<path fill="none" stroke="#000000" d="M44.97,-129.15C57.99,-138.47 76.18,-151.49 90.89,-162.02"/>
+<polygon fill="#000000" stroke="#000000" points="88.92,-164.91 99.08,-167.89 92.99,-159.22 88.92,-164.91"/>
+</g>
+<!-- proc~elmhes -->
+<g id="proc~~rg~~CallsGraph_node4" class="node">
+<title>proc~elmhes</title>
+<g id="a_proc~~rg~~CallsGraph_node4"><a xlink:href=".././proc/elmhes.html" xlink:title="elmhes">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-150 90,-150 90,-126 144,-126 144,-150"/>
+<text text-anchor="middle" x="117" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">elmhes</text>
+</a>
+</g>
+</g>
+<!-- proc~rg&#45;&gt;proc~elmhes -->
+<g id="proc~~rg~~CallsGraph_edge3" class="edge">
+<title>proc~rg&#45;&gt;proc~elmhes</title>
 <path fill="none" stroke="#000000" d="M54.4,-123.3C62.48,-125.23 71.51,-127.38 80.1,-129.43"/>
 <polygon fill="#000000" stroke="#000000" points="79.38,-132.86 89.92,-131.78 81,-126.05 79.38,-132.86"/>
 </g>
@@ -524,38 +524,38 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
 </g>
 </g>
 <!-- proc~rg&#45;&gt;proc~hqr2 -->
-<g id="proc~~rg~~CallsGraph_edge3" class="edge">
+<g id="proc~~rg~~CallsGraph_edge4" class="edge">
 <title>proc~rg&#45;&gt;proc~hqr2</title>
 <path fill="none" stroke="#000000" d="M54.4,-110.7C62.48,-108.77 71.51,-106.62 80.1,-104.57"/>
 <polygon fill="#000000" stroke="#000000" points="81,-107.95 89.92,-102.22 79.38,-101.14 81,-107.95"/>
 </g>
-<!-- proc~elmhes -->
+<!-- proc~balanc -->
 <g id="proc~~rg~~CallsGraph_node6" class="node">
-<title>proc~elmhes</title>
-<g id="a_proc~~rg~~CallsGraph_node6"><a xlink:href=".././proc/elmhes.html" xlink:title="elmhes">
+<title>proc~balanc</title>
+<g id="a_proc~~rg~~CallsGraph_node6"><a xlink:href=".././proc/balanc.html" xlink:title="balanc">
 <polygon fill="#d9534f" stroke="#d9534f" points="144,-66 90,-66 90,-42 144,-42 144,-66"/>
-<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">elmhes</text>
+<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">balanc</text>
 </a>
 </g>
 </g>
-<!-- proc~rg&#45;&gt;proc~elmhes -->
+<!-- proc~rg&#45;&gt;proc~balanc -->
 <g id="proc~~rg~~CallsGraph_edge5" class="edge">
-<title>proc~rg&#45;&gt;proc~elmhes</title>
+<title>proc~rg&#45;&gt;proc~balanc</title>
 <path fill="none" stroke="#000000" d="M44.97,-104.85C57.99,-95.53 76.18,-82.51 90.89,-71.98"/>
 <polygon fill="#000000" stroke="#000000" points="92.99,-74.78 99.08,-66.11 88.92,-69.09 92.99,-74.78"/>
 </g>
-<!-- proc~balbak -->
+<!-- proc~hqr -->
 <g id="proc~~rg~~CallsGraph_node7" class="node">
-<title>proc~balbak</title>
-<g id="a_proc~~rg~~CallsGraph_node7"><a xlink:href=".././proc/balbak.html" xlink:title="balbak">
+<title>proc~hqr</title>
+<g id="a_proc~~rg~~CallsGraph_node7"><a xlink:href=".././proc/hqr.html" xlink:title="hqr">
 <polygon fill="#d9534f" stroke="#d9534f" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">balbak</text>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hqr</text>
 </a>
 </g>
 </g>
-<!-- proc~rg&#45;&gt;proc~balbak -->
+<!-- proc~rg&#45;&gt;proc~hqr -->
 <g id="proc~~rg~~CallsGraph_edge6" class="edge">
-<title>proc~rg&#45;&gt;proc~balbak</title>
+<title>proc~rg&#45;&gt;proc~hqr</title>
 <path fill="none" stroke="#000000" d="M35.55,-104.85C46.43,-87.81 67.69,-56.31 90,-33 90.65,-32.32 91.32,-31.64 92.01,-30.97"/>
 <polygon fill="#000000" stroke="#000000" points="94.64,-33.32 99.76,-24.05 89.97,-28.1 94.64,-33.32"/>
 </g>
@@ -676,35 +676,35 @@ private subroutine rg(Nm, n, a, Wr, Wi, Matz, z, Iv1, Fv1, Ierr)
 <path fill="none" stroke="#000000" d="M585.13,-33C594.19,-33 602.84,-33 610.66,-33"/>
 <polygon fill="#000000" stroke="#000000" points="610.76,-36.5 620.76,-33 610.76,-29.5 610.76,-36.5"/>
 </g>
-<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors -->
-<g id="proc~~rg~~CalledByGraph_node3" class="node">
-<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors</title>
-<g id="a_proc~~rg~~CalledByGraph_node3"><a xlink:href=".././proc/compute_real_eigenvalues_and_normalized_eigenvectors.html" xlink:title="compute_real_eigenvalues_and_normalized_eigenvectors">
-<polygon fill="#d9534f" stroke="#d9534f" points="320,-66 0,-66 0,-42 320,-42 320,-66"/>
-<text text-anchor="middle" x="160" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_real_eigenvalues_and_normalized_eigenvectors</text>
-</a>
-</g>
-</g>
-<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors -->
-<g id="proc~~rg~~CalledByGraph_edge2" class="edge">
-<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors</title>
-<path fill="none" stroke="#000000" d="M320.22,-43.16C328.7,-42.58 337.17,-42.01 345.51,-41.44"/>
-<polygon fill="#000000" stroke="#000000" points="345.88,-44.92 355.62,-40.75 345.4,-37.94 345.88,-44.92"/>
-</g>
 <!-- proc~eispack_test -->
-<g id="proc~~rg~~CalledByGraph_node4" class="node">
+<g id="proc~~rg~~CalledByGraph_node3" class="node">
 <title>proc~eispack_test</title>
-<g id="a_proc~~rg~~CalledByGraph_node4"><a xlink:href=".././proc/eispack_test.html" xlink:title="eispack_test">
-<polygon fill="#d9534f" stroke="#d9534f" points="199,-24 121,-24 121,0 199,0 199,-24"/>
-<text text-anchor="middle" x="160" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eispack_test</text>
+<g id="a_proc~~rg~~CalledByGraph_node3"><a xlink:href=".././proc/eispack_test.html" xlink:title="eispack_test">
+<polygon fill="#d9534f" stroke="#d9534f" points="199,-66 121,-66 121,-42 199,-42 199,-66"/>
+<text text-anchor="middle" x="160" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">eispack_test</text>
 </a>
 </g>
 </g>
 <!-- proc~eispack_test&#45;&gt;proc~compute_eigenvalues_and_eigenvectors -->
-<g id="proc~~rg~~CalledByGraph_edge3" class="edge">
+<g id="proc~~rg~~CalledByGraph_edge2" class="edge">
 <title>proc~eispack_test&#45;&gt;proc~compute_eigenvalues_and_eigenvectors</title>
-<path fill="none" stroke="#000000" d="M199.14,-14.6C235.79,-17.09 293.2,-21 345.7,-24.57"/>
-<polygon fill="#000000" stroke="#000000" points="345.57,-28.07 355.79,-25.26 346.05,-21.09 345.57,-28.07"/>
+<path fill="none" stroke="#000000" d="M199.14,-51.4C235.79,-48.91 293.2,-45 345.7,-41.43"/>
+<polygon fill="#000000" stroke="#000000" points="346.05,-44.91 355.79,-40.74 345.57,-37.93 346.05,-44.91"/>
+</g>
+<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors -->
+<g id="proc~~rg~~CalledByGraph_node4" class="node">
+<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors</title>
+<g id="a_proc~~rg~~CalledByGraph_node4"><a xlink:href=".././proc/compute_real_eigenvalues_and_normalized_eigenvectors.html" xlink:title="compute_real_eigenvalues_and_normalized_eigenvectors">
+<polygon fill="#d9534f" stroke="#d9534f" points="320,-24 0,-24 0,0 320,0 320,-24"/>
+<text text-anchor="middle" x="160" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compute_real_eigenvalues_and_normalized_eigenvectors</text>
+</a>
+</g>
+</g>
+<!-- proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors -->
+<g id="proc~~rg~~CalledByGraph_edge3" class="edge">
+<title>proc~compute_real_eigenvalues_and_normalized_eigenvectors&#45;&gt;proc~compute_eigenvalues_and_eigenvectors</title>
+<path fill="none" stroke="#000000" d="M320.22,-22.84C328.7,-23.42 337.17,-23.99 345.51,-24.56"/>
+<polygon fill="#000000" stroke="#000000" points="345.4,-28.06 355.62,-25.25 345.88,-21.08 345.4,-28.06"/>
 </g>
 </g>
 </svg>

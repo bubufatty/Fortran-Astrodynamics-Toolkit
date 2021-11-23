@@ -240,7 +240,7 @@ public subroutine newton(x, f, dfdx, ftol, xtol, max_iter, xs, fx, iflag)
   
 <tr>
   
-  <td><span class="anchor" id="variable-x~46"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-x~20"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -255,7 +255,7 @@ public subroutine newton(x, f, dfdx, ftol, xtol, max_iter, xs, fx, iflag)
   
 <tr>
   
-  <td><span class="anchor" id="variable-f~22"></span>procedure(<a href='../interface/func~2.html'>func</a>)</td>
+  <td><span class="anchor" id="variable-f~14"></span>procedure(<a href='../interface/func.html'>func</a>)</td>
   <td></td>
   <td></td>
   
@@ -270,7 +270,7 @@ public subroutine newton(x, f, dfdx, ftol, xtol, max_iter, xs, fx, iflag)
   
 <tr>
   
-  <td><span class="anchor" id="variable-dfdx~5"></span>procedure(<a href='../interface/func~2.html'>func</a>)</td>
+  <td><span class="anchor" id="variable-dfdx"></span>procedure(<a href='../interface/func.html'>func</a>)</td>
   <td></td>
   <td></td>
   
@@ -300,7 +300,7 @@ public subroutine newton(x, f, dfdx, ftol, xtol, max_iter, xs, fx, iflag)
   
 <tr>
   
-  <td><span class="anchor" id="variable-xtol~3"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-xtol"></span>real(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -360,16 +360,16 @@ public subroutine newton(x, f, dfdx, ftol, xtol, max_iter, xs, fx, iflag)
   
 <tr>
   
-  <td><span class="anchor" id="variable-iflag~5"></span>integer,</td>
+  <td><span class="anchor" id="variable-iflag~3"></span>integer,</td>
   <td>intent(out)</td>
   <td></td>
   
   <td></td><td>::</td>
   <td><strong>iflag</strong></td><td><p>status flag:
-  0 : absolute convergence in f
-  1 : relative convergence in x
- -1 : Error: derivative is zero
- -2 : Error: max iterations exceeded</p></td>
+ 0 : absolute convergence in f
+ 1 : relative convergence in x
+-1 : Error: derivative is zero
+-2 : Error: max iterations exceeded</p></td>
   
 </tr>
 
